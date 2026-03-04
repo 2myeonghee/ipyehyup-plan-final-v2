@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-
 <html lang="ko">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width,initial-scale=1.0" name="viewport"/>
-<title>입주예정자협의회 법률 AI 플랫폼 — 종합 기획서 v1.0</title>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>입주예정자협의회 법률 AI 플랫폼 — 종합 기획서 v2.0</title>
 <style>
 :root{
   --black:#111;--mid:#555;--light:#888;--border:#e0e0e0;
@@ -33,6 +32,11 @@ h1{font-size:30px;font-weight:900;line-height:1.25;margin-bottom:12px;}
 .toc a{color:var(--black);text-decoration:none;}
 .toc a:hover{text-decoration:underline;}
 .toc .sub-item{padding-left:16px;font-size:13px;color:var(--mid);}
+.toc .sub-item .new{font-size:11px;font-weight:700;color:#b00;background:#fff0f0;
+  border:1px solid #b00;padding:1px 6px;border-radius:3px;margin-left:4px;}
+.new-badge{font-size:11px;font-weight:700;color:#b00;margin-left:6px;}
+.final-msg{border:1px dashed #197;background:#f5fffd;padding:12px 16px;
+  border-radius:8px;text-align:center;font-size:13px;margin:10px 0;}
 
 /* 파트 구분 */
 .part-divider{
@@ -155,1061 +159,1285 @@ footer{margin-top:80px;padding-top:20px;border-top:1px solid var(--border);
 </head>
 <body>
 <div class="wrap">
+
 <!-- ===== 문서 헤더 ===== -->
 <header class="doc-header">
-<div class="kicker">법무법인 더 에이치 황해 — 집단등기팀 사업 기획</div>
-<h1>입주예정자협의회<br/>법률 AI 플랫폼 종합 기획서</h1>
-<p class="sub">시장 분석 · 경쟁사 비교 · 플랫폼 설계 · AI 상담 시스템 설계 통합본</p>
-<div class="meta">
-<span>작성일: 2026. 03. 03</span>
-<span>버전: v1.0</span>
-<span>기준 레퍼런스: classaction.lawfirmthe-h.com</span>
-<span>대상: 집단등기팀 / 개발팀</span>
-</div>
+  <div class="kicker">법무법인 더 에이치 황해 — 집단등기팀 사업 기획</div>
+  <h1>입주예정자협의회<br>법률 AI 플랫폼 종합 기획서</h1>
+  <p class="sub">시장 분석 · 경쟁사 비교 · 플랫폼 설계 · AI 상담 시스템 설계 통합본</p>
+  <div class="meta">
+    <span>작성일: 2026. 03. 03</span>
+    <span>버전: <strong>v2.0</strong></span>
+    <span>기준 레퍼런스: classaction.lawfirmthe-h.com</span>
+    <span>대상: 집단등기팀 / 개발팀</span>
+  </div>
 </header>
+
 <!-- ===== TOC ===== -->
 <nav class="toc">
-<div class="toc-t">목차</div>
-<ol>
-<li><a href="#p1s1">PART 1 — 시장 환경 분석</a>
-<div class="sub-item">1.1 입주예정자협의회(입예협)란 무엇인가</div>
-<div class="sub-item">1.2 입예협 생태계와 법무법인의 수익 구조</div>
-<div class="sub-item">1.3 시장 규모 및 성장 배경</div>
-</li>
-<li><a href="#p1s2">PART 2 — 황해 집단등기팀 현황 분석</a>
-<div class="sub-item">2.1 현재 운영 방식</div>
-<div class="sub-item">2.2 수익 파이프라인 구조</div>
-<div class="sub-item">2.3 현재 디지털 채널 현황</div>
-</li>
-<li><a href="#p2s1">PART 3 — 경쟁 로펌 심층 분석</a>
-<div class="sub-item">3.1 법무법인 태성</div>
-<div class="sub-item">3.2 법무법인 청연</div>
-<div class="sub-item">3.3 법무법인 산하 외</div>
-<div class="sub-item">3.4 황해 vs 경쟁사 격차 분석</div>
-
-<div class="sub-item">3.2 등기관리시스템 분석 (eregister.co.kr) <span class="new">v2.0 추가</span></div>
-</li>
-<li><a href="#p3s1">PART 4 — 플랫폼 전략 방향</a>
-<div class="sub-item">4.1 기획 방향 및 서비스 컨셉</div>
-<div class="sub-item">4.2 classaction.lawfirmthe-h.com 디자인 시스템 활용 전략</div>
-<div class="sub-item">4.3 사이트 전체 구조 설계</div>
-</li>
-<li><a href="#p4s1">PART 5 — 페이지별 상세 설계</a>
-
-
-
-
-
-
-<div class="sub-item">5.1 메인(홈) 페이지</div>
-<div class="sub-item">5.2 집단등기 신청 페이지</div>
-<div class="sub-item">5.3 담당 단지 현황 페이지 (목록)</div>
-<div class="sub-item">5.4 담당 단지 상세 페이지 <span class="new">v2.0 추가</span></div>
-<div class="sub-item">5.5 등기관리시스템 (황해 버전) <span class="new">v2.0 추가</span></div>
-</li>
-<li><a href="#p5s1">PART 6 — AI 법률 상담 시스템 상세 설계</a>
-
-
-
-
-
-
-
-<div class="sub-item">6.1 AI 상담 vs 단순 Q&amp;A 분리 <span class="new">v2.0 수정</span></div>
-<div class="sub-item">6.2 B2B: 입예협 법률 쟁점 파악 AI</div>
-<div class="sub-item">6.3 B2C: 개인 사건화 AI (사실관계 수집)</div>
-<div class="sub-item">6.4 AI → 변호사 핸드오프 설계 (카카오 알림톡) <span class="new">v2.0 수정</span></div>
-<div class="sub-item">6.5 시스템 프롬프트 설계</div>
-</li>
-<li><a href="#p6s1">PART 7 — 개발 로드맵 &amp; 우선순위</a></li>
-<li><a href="#p7s1">PART 8 — 기대 효과 &amp; 수익 모델</a></li>
-</ol>
+  <div class="toc-t">목차</div>
+  <ol>
+    <li><a href="#p1s1">PART 1 — 시장 환경 분석</a>
+      <div class="sub-item">1.1 입주예정자협의회(입예협)란 무엇인가</div>
+      <div class="sub-item">1.2 입예협 생태계와 법무법인의 수익 구조</div>
+      <div class="sub-item">1.3 시장 규모 및 성장 배경</div>
+    </li>
+    <li><a href="#p1s2">PART 2 — 황해 집단등기팀 현황 분석</a>
+      <div class="sub-item">2.1 현재 운영 방식</div>
+      <div class="sub-item">2.2 수익 파이프라인 구조</div>
+      <div class="sub-item">2.3 현재 디지털 채널 현황</div>
+    </li>
+    <li><a href="#p2s1">PART 3 — 경쟁 로펌 심층 분석</a>
+      <div class="sub-item">3.1 법무법인 태성</div>
+      <div class="sub-item">3.2 법무법인 청연</div>
+      <div class="sub-item">3.3 법무법인 산하 외</div>
+      <div class="sub-item">3.4 황해 vs 경쟁사 격차 분석</div>
+      <div class="sub-item">3.5 경쟁사 등기관리시스템 분석 (eregister.co.kr) <span class="new">v2.0</span></div>
+    </li>
+    <li><a href="#p3s1">PART 4 — 플랫폼 전략 방향</a>
+      <div class="sub-item">4.1 기획 방향 및 서비스 컨셉</div>
+      <div class="sub-item">4.2 classaction.lawfirmthe-h.com 디자인 시스템 활용 전략</div>
+      <div class="sub-item">4.3 사이트 전체 구조 설계</div>
+    </li>
+    <li><a href="#p4s1">PART 5 — 페이지별 상세 설계</a>
+      <div class="sub-item">5.1 메인(홈) 페이지</div>
+      <div class="sub-item">5.2 집단등기 신청 페이지</div>
+      <div class="sub-item">5.3 집단등기 비용 계산기</div>
+      <div class="sub-item">5.4 담당 단지 현황 페이지 (목록)</div>
+      <div class="sub-item">5.5 AI 상담 & FAQ 페이지</div>
+      <div class="sub-item">5.6 담당 단지 상세 페이지 (/districts/[id]) <span class="new">v2.0</span></div>
+      <div class="sub-item">5.7 등기관리시스템 — 황해 버전 <span class="new">v2.0</span></div>
+    </li>
+    <li><a href="#p5s1">PART 6 — AI 법률 상담 시스템 상세 설계</a>
+      <div class="sub-item">6.1 이중 채널 구조 — 입예협(B2B) vs 입주예정자 개인(B2C)</div>
+      <div class="sub-item">6.1-1 AI 상담 vs 단순 Q&A 분리 <span class="new">v2.0</span></div>
+      <div class="sub-item">6.2 B2B: 입예협 법률 쟁점 파악 AI — 대화 플로우</div>
+      <div class="sub-item">6.3 B2C: 개인 사건화 AI — 사실관계 수집 플로우</div>
+      <div class="sub-item">6.4 AI → 변호사 핸드오프 (카카오 알림톡) <span class="new">v2.0</span></div>
+      <div class="sub-item">6.5 시스템 프롬프트 설계</div>
+      <div class="sub-item">6.6 기술 아키텍처</div>
+    </li>
+    <li><a href="#p6s1">PART 7 — 개발 로드맵 & 우선순위</a></li>
+    <li><a href="#p7s1">PART 8 — 기대 효과 & 수익 모델</a></li>
+  </ol>
 </nav>
+
 <!-- ============================= PART 1 ============================= -->
 <div class="part-divider">PART 1 — 시장 환경 분석</div>
+
 <section id="p1s1">
 <h2>1. 입주예정자협의회(입예협)란 무엇인가</h2>
+
 <h3>1.1 정의 및 법적 성격</h3>
 <p>입주예정자협의회(이하 "입예협")는 신축 아파트·오피스텔 등의 수분양자들이 준공·입주 전 단계에서 자발적으로 구성하는 임의단체다. 분양계약 체결 이후, 실제 입주가 이루어지기 전까지의 기간 동안 공동의 이익을 위해 활동한다.</p>
+
 <table>
-<thead><tr><th>항목</th><th>내용</th></tr></thead>
-<tbody>
-<tr><td><strong>법적 지위</strong></td><td>비법인사단 (권리능력 없음). 단, 민사소송법 제52조에 의해 <strong>소송상 당사자 능력 인정</strong> (대표자 선임 전제)</td></tr>
-<tr><td><strong>구성 시점</strong></td><td>분양 완료 → 준공 전, 통상 입주 예정일 1~2년 전부터 결성</td></tr>
-<tr><td><strong>결성 채널</strong></td><td>네이버 카페 + 카카오톡 오픈채팅방이 표준 채널. 카페를 공식 채널로 운영하는 경우가 다수</td></tr>
-<tr><td><strong>임원 구성</strong></td><td>회장(대표), 총무, 감사 등. 임원 선출은 카페 투표 또는 온라인 총회 방식</td></tr>
-<tr><td><strong>회비</strong></td><td>세대당 1만~5만원 수준. 납부 강제성 없음 (임의)</td></tr>
-<tr><td><strong>리베이트 이슈</strong></td><td>법무법인·법무사가 입예협에 발전기금 명목 지급 관행 존재 → 선정된 로펌은 추후 집단등기 수수료로 회수</td></tr>
-</tbody>
+  <thead><tr><th>항목</th><th>내용</th></tr></thead>
+  <tbody>
+    <tr><td><strong>법적 지위</strong></td><td>비법인사단 (권리능력 없음). 단, 민사소송법 제52조에 의해 <strong>소송상 당사자 능력 인정</strong> (대표자 선임 전제)</td></tr>
+    <tr><td><strong>구성 시점</strong></td><td>분양 완료 → 준공 전, 통상 입주 예정일 1~2년 전부터 결성</td></tr>
+    <tr><td><strong>결성 채널</strong></td><td>네이버 카페 + 카카오톡 오픈채팅방이 표준 채널. 카페를 공식 채널로 운영하는 경우가 다수</td></tr>
+    <tr><td><strong>임원 구성</strong></td><td>회장(대표), 총무, 감사 등. 임원 선출은 카페 투표 또는 온라인 총회 방식</td></tr>
+    <tr><td><strong>회비</strong></td><td>세대당 1만~5만원 수준. 납부 강제성 없음 (임의)</td></tr>
+    <tr><td><strong>리베이트 이슈</strong></td><td>법무법인·법무사가 입예협에 발전기금 명목 지급 관행 존재 → 선정된 로펌은 추후 집단등기 수수료로 회수</td></tr>
+  </tbody>
 </table>
+
 <h3>1.2 입예협의 핵심 활동 6가지</h3>
 <ol>
-<li><strong>집단등기 법무법인 선정</strong> — 소유권이전등기·근저당권설정등기를 일괄 대행할 법무법인 또는 법무사 선발. 최대 관심사</li>
-<li><strong>잔금대출 은행 협상</strong> — 유리한 금리·한도로 집단대출을 협상해 줄 금융기관 선정</li>
-<li><strong>사전점검 지원</strong> — 입주 전 하자 점검 체크리스트 배포, 전문가 동행 등</li>
-<li><strong>시공사·분양사 협의</strong> — 변경시공 이의, 공기 지연 항의, 공용시설 요구</li>
-<li><strong>입주박람회 기획</strong> — 인테리어·이사·가구 공동구매 행사 운영</li>
-<li><strong>입주 후 입대위 전환</strong> — 입주자대표회의(입대위) 구성 준비, 관리규약 초안 검토</li>
+  <li><strong>집단등기 법무법인 선정</strong> — 소유권이전등기·근저당권설정등기를 일괄 대행할 법무법인 또는 법무사 선발. 최대 관심사</li>
+  <li><strong>잔금대출 은행 협상</strong> — 유리한 금리·한도로 집단대출을 협상해 줄 금융기관 선정</li>
+  <li><strong>사전점검 지원</strong> — 입주 전 하자 점검 체크리스트 배포, 전문가 동행 등</li>
+  <li><strong>시공사·분양사 협의</strong> — 변경시공 이의, 공기 지연 항의, 공용시설 요구</li>
+  <li><strong>입주박람회 기획</strong> — 인테리어·이사·가구 공동구매 행사 운영</li>
+  <li><strong>입주 후 입대위 전환</strong> — 입주자대표회의(입대위) 구성 준비, 관리규약 초안 검토</li>
 </ol>
+
 <div class="callout">
-<strong>왜 법무법인이 입예협을 중시하는가</strong>
+  <strong>왜 법무법인이 입예협을 중시하는가</strong>
   입예협이 법무법인을 선정하면, 해당 로펌은 ① 집단등기 수임(1차 직접 수익) ② 입주 후 하자 발견 시 하자소송 의뢰(2차 수익) ③ 입주민 개인 법률 문제 수임(3차 수익) 순서로 장기 고객 관계가 형성된다. 단지 하나를 선점하면 3년~10년에 걸쳐 복합적인 수익이 발생하는 구조다.
 </div>
 </section>
+
 <section id="p1s2">
 <h2>2. 황해 집단등기팀 현황 분석</h2>
+
 <h3>2.1 현재 운영 방식</h3>
 <p>법무법인 더 에이치 황해(대표 천상현, 인천 미추홀구)는 설립 1998년, 변호사 8명+, 직원 74명, 매출 97.8억의 소비자소송 전문 로펌이다. 업무 분야 4개 중 하나가 <strong>입주예정자협의회 지원(집단등기)</strong>이다.</p>
+
 <table>
-<thead><tr><th>활동</th><th>현재 방식</th><th>한계</th></tr></thead>
-<tbody>
-<tr><td>입예협 발굴</td><td>기존 단지 소개 + 영업팀 현장 접촉</td><td>체계적 디지털 채널 없음</td></tr>
-<tr><td>법률 자문</td><td>변호사 직접 카페 게시판 답변 또는 전화 응대</td><td>야간·주말 응답 불가, 반복 질문에 시간 낭비</td></tr>
-<tr><td>집단등기 수임</td><td>입예협과 계약 체결 후 일괄 진행</td><td>온라인 접수 시스템 미비</td></tr>
-<tr><td>잔금대출 협상</td><td>금융팀이 은행 직접 접촉</td><td>디지털 안내 콘텐츠 없음</td></tr>
-<tr><td>하자 연계</td><td>입주 후 하자 발견 시 자연 의뢰</td><td>사전 점검 가이드 미제공, 기회 손실</td></tr>
-<tr><td>전용 플랫폼</td><td>없음 (본 사이트 1개 항목으로만 소개)</td><td><strong>입예협 전용 브랜딩·채널 전무</strong></td></tr>
-</tbody>
+  <thead><tr><th>활동</th><th>현재 방식</th><th>한계</th></tr></thead>
+  <tbody>
+    <tr><td>입예협 발굴</td><td>기존 단지 소개 + 영업팀 현장 접촉</td><td>체계적 디지털 채널 없음</td></tr>
+    <tr><td>법률 자문</td><td>변호사 직접 카페 게시판 답변 또는 전화 응대</td><td>야간·주말 응답 불가, 반복 질문에 시간 낭비</td></tr>
+    <tr><td>집단등기 수임</td><td>입예협과 계약 체결 후 일괄 진행</td><td>온라인 접수 시스템 미비</td></tr>
+    <tr><td>잔금대출 협상</td><td>금융팀이 은행 직접 접촉</td><td>디지털 안내 콘텐츠 없음</td></tr>
+    <tr><td>하자 연계</td><td>입주 후 하자 발견 시 자연 의뢰</td><td>사전 점검 가이드 미제공, 기회 손실</td></tr>
+    <tr><td>전용 플랫폼</td><td>없음 (본 사이트 1개 항목으로만 소개)</td><td><strong>입예협 전용 브랜딩·채널 전무</strong></td></tr>
+  </tbody>
 </table>
+
 <h3>2.2 수익 파이프라인 구조</h3>
+
 <div class="flow">
-<div class="fb">입예협 카페<br/>발굴·선정</div>
-<div class="fa">→</div>
-<div class="fb dark">무료 법률 자문<br/>신뢰 구축</div>
-<div class="fa">→</div>
-<div class="fb">집단등기<br/>수임 계약</div>
-<div class="fa">→</div>
-<div class="fb">잔금대출<br/>은행 협상</div>
-<div class="fa">→</div>
-<div class="fb">입주 후<br/>하자소송</div>
-<div class="fa">→</div>
-<div class="fb dark">개인 법률<br/>사건 수임</div>
+  <div class="fb">입예협 카페<br>발굴·선정</div>
+  <div class="fa">→</div>
+  <div class="fb dark">무료 법률 자문<br>신뢰 구축</div>
+  <div class="fa">→</div>
+  <div class="fb">집단등기<br>수임 계약</div>
+  <div class="fa">→</div>
+  <div class="fb">잔금대출<br>은행 협상</div>
+  <div class="fa">→</div>
+  <div class="fb">입주 후<br>하자소송</div>
+  <div class="fa">→</div>
+  <div class="fb dark">개인 법률<br>사건 수임</div>
 </div>
+
 <table>
-<thead><tr><th>단계</th><th>수익 유형</th><th>규모 추정 (700세대 기준)</th></tr></thead>
-<tbody>
-<tr><td>집단등기</td><td>세대당 등기 수수료</td><td><strong>2.1억 ~ 3.5억</strong></td></tr>
-<tr><td>하자소송</td><td>착수금 + 성공보수</td><td>청구액의 10~15% (평균 청구 17~52억)</td></tr>
-<tr><td>개인 수임</td><td>분양계약 분쟁·하자 개별 사건</td><td>건당 300만~1,000만</td></tr>
-</tbody>
+  <thead><tr><th>단계</th><th>수익 유형</th><th>규모 추정 (700세대 기준)</th></tr></thead>
+  <tbody>
+    <tr><td>집단등기</td><td>세대당 등기 수수료</td><td><strong>2.1억 ~ 3.5억</strong></td></tr>
+    <tr><td>하자소송</td><td>착수금 + 성공보수</td><td>청구액의 10~15% (평균 청구 17~52억)</td></tr>
+    <tr><td>개인 수임</td><td>분양계약 분쟁·하자 개별 사건</td><td>건당 300만~1,000만</td></tr>
+  </tbody>
 </table>
+
 <h3>2.3 황해가 선언한 AI 방향</h3>
 <div class="callout green">
-<strong>황해 공식 홈페이지 이미 선언: "리걸 AI 에이전트 '더 에이치' 개발"</strong>
+  <strong>황해 공식 홈페이지 이미 선언: "리걸 AI 에이전트 '더 에이치' 개발"</strong>
   lawfirmthe-h.com 메인 페이지에 "이제 AI시대를 맞아 황해는 리걸 AI에이전트인 '더 에이치'를 개발하여 비대면 법률서비스분야에서 신기원을 이룩하고자 합니다."라고 직접 명시. 입예협 플랫폼은 이 AI 에이전트의 첫 번째 실제 구현이 된다.
 </div>
 </section>
+
 <!-- ============================= PART 2 ============================= -->
 <div class="part-divider">PART 2 — 경쟁 로펌 심층 분석</div>
+
 <section id="p2s1">
 <h2>3. 경쟁 로펌 심층 분석</h2>
+
 <h3>3.1 법무법인 태성 (최강 경쟁자)</h3>
 <table>
-<thead><tr><th>항목</th><th>내용</th></tr></thead>
-<tbody>
-<tr><td>규모</td><td>변호사 15명, 임직원 90명 / 인사혁신처 선정 60대 로펌 2년 연속</td></tr>
-<tr><td>대표 변호사</td><td>윤영환 (건설시공기술사 + 건축기사 + 토목기사 자격 동시 보유 — 건설 전문성 압도적)</td></tr>
-<tr><td>홈페이지</td><td>lawtaesung.com (본점) + lawfirmts.com (인천·광주 분소)</td></tr>
-<tr><td>입예협 서비스</td><td>건설·부동산 전문 변호사 법률 자문(무료) + 사전점검 지원 + 하자소송 연계. 전용 페이지(lawtaesung.com/business/council) 운영</td></tr>
-<tr><td>등기 시스템</td><td>eregister.co.kr — 입예협 등기진행 상황 온라인 확인 시스템 별도 구축</td></tr>
-<tr><td>하자소송 실적</td><td>화성 398세대 9.12억(84.2%인용) / 김포 1,230세대 29.6억(56.8%) / 동해 260세대 7.72억(88.8%)</td></tr>
-<tr><td>핵심 강점</td><td>건설 기술 자격 보유 → 하자 감정 신뢰도. 등기 진행 확인 시스템. 무료 법률 자문 선도적 제공</td></tr>
-<tr><td>약점</td><td>AI 상담 없음. 24시간 즉시 응답 불가. 인천·수도권 집중</td></tr>
-</tbody>
+  <thead><tr><th>항목</th><th>내용</th></tr></thead>
+  <tbody>
+    <tr><td>규모</td><td>변호사 15명, 임직원 90명 / 인사혁신처 선정 60대 로펌 2년 연속</td></tr>
+    <tr><td>대표 변호사</td><td>윤영환 (건설시공기술사 + 건축기사 + 토목기사 자격 동시 보유 — 건설 전문성 압도적)</td></tr>
+    <tr><td>홈페이지</td><td>lawtaesung.com (본점) + lawfirmts.com (인천·광주 분소)</td></tr>
+    <tr><td>입예협 서비스</td><td>건설·부동산 전문 변호사 법률 자문(무료) + 사전점검 지원 + 하자소송 연계. 전용 페이지(lawtaesung.com/business/council) 운영</td></tr>
+    <tr><td>등기 시스템</td><td>eregister.co.kr — 입예협 등기진행 상황 온라인 확인 시스템 별도 구축</td></tr>
+    <tr><td>하자소송 실적</td><td>화성 398세대 9.12억(84.2%인용) / 김포 1,230세대 29.6억(56.8%) / 동해 260세대 7.72억(88.8%)</td></tr>
+    <tr><td>핵심 강점</td><td>건설 기술 자격 보유 → 하자 감정 신뢰도. 등기 진행 확인 시스템. 무료 법률 자문 선도적 제공</td></tr>
+    <tr><td>약점</td><td>AI 상담 없음. 24시간 즉시 응답 불가. 인천·수도권 집중</td></tr>
+  </tbody>
 </table>
 
-<h3 id="p2s1-2"><span class="new">v2.0</span> 등기관리시스템 분석 (eregister.co.kr)</h3>
-<p>법무법인 태성은 입예협 시장의 강력한 경쟁자이며, <strong>eregister.co.kr</strong> 이라는 전용 등기관리시스템을 선제적으로 구축하여 운영 중이다. 이 시스템을 분석하여 우리가 만들 시스템의 방향을 설정한다.</p>
-<h4>시스템 핵심 기능</h4>
-<div class="compare">
-<div class="c-col">
-<div class="c-lbl">B2C (개인 입주자용)</div>
-<ul>
-<li><strong>기능</strong>: 개별 세대 등기 진행 상황 조회</li>
-<li><strong>인증</strong>: 아파트 선택 + 동/호 + 생년월일 6자리</li>
-<li><strong>UX</strong>: 간단한 폼 입력 후 결과 확인</li>
-</ul>
-</div>
-<div class="c-col">
-<div class="c-lbl">B2B (입예협용)</div>
-<ul>
-<li><strong>기능</strong>: 단지 전체 등기 현황 일괄 모니터링</li>
-<li><strong>인증</strong>: 아이디/패스워드 로그인</li>
-<li><strong>UX</strong>: 관계자 전용 로그인 후 관리자 대시보드 접근</li>
-</ul>
-</div>
-</div>
-<h4>기술 및 보안 수준 분석</h4>
-<table>
-<thead><tr><th>항목</th><th>분석 내용</th><th>우리의 기회</th></tr></thead>
-<tbody>
-<tr><td><strong>기술 스택</strong></td><td>2017년 제작 추정 (저작권 표기). 프레임워크 없는 전통적 웹 개발 방식. 반응형 미지원.</td><td><strong>최신 기술(Next.js, Vercel)로 모바일 최적화 및 훨씬 나은 UX/UI 제공 가능</strong></td></tr>
-<tr><td><strong>보안 수준</strong></td><td>생년월일 6자리 인증은 <strong>매우 취약</strong>. 브루트포스 공격에 노출. 현행 개인정보보호법 기준 미달 가능성.</td><td><strong>카카오톡 간편인증, 휴대폰 본인인증 등 강력한 인증 수단 도입으로 신뢰성 확보</strong></td></tr>
-<tr><td><strong>UX 한계</strong></td><td>라벨 없는 폼, 실시간 유효성 검증 부재, 다소 오래된 UI. 텍스트 위주로 정보 전달.</td><td><strong>직관적 UI, 시각적 대시보드(차트, 타임라인), 상태별 자동 알림 등 UX 혁신 가능</strong></td></tr>
-</tbody>
-</table>
-<div class="callout red">
-<strong>핵심 시사점: 경쟁 시스템은 '구식'이다.</strong>
-  태성의 시스템은 시장을 선점했지만, 기술적으로 낡고 보안이 취약하며 사용자 경험이 좋지 않다. 우리는 <strong>모바일 친화적이고, 안전하며, 직관적인 UI/UX</strong>를 제공함으로써 압도적인 경쟁 우위를 점할 수 있다.
-</div>
 <h3>3.2 법무법인 청연</h3>
 <table>
-<thead><tr><th>항목</th><th>내용</th></tr></thead>
-<tbody>
-<tr><td>대표</td><td>권정 변호사 / 서울 서초구 + 경기 시흥 분소</td></tr>
-<tr><td>홈페이지</td><td>lawcy.co.kr</td></tr>
-<tr><td>입예협 서비스</td><td><strong>가장 완전한 패키지</strong>: 집단등기 + 단체등기 + 집단대출 + 하자보수 + 입주박람회 + 사전점검 지원 6종 풀서비스</td></tr>
-<tr><td>핵심 강점</td><td>입주박람회 기획·운영 역량 보유 → 입예협이 원하는 비법률적 서비스까지 원스톱 제공</td></tr>
-<tr><td>약점</td><td>소규모 로펌으로 변호사 인력 한계. AI 상담 없음. 디지털 채널 기본 수준</td></tr>
-</tbody>
+  <thead><tr><th>항목</th><th>내용</th></tr></thead>
+  <tbody>
+    <tr><td>대표</td><td>권정 변호사 / 서울 서초구 + 경기 시흥 분소</td></tr>
+    <tr><td>홈페이지</td><td>lawcy.co.kr</td></tr>
+    <tr><td>입예협 서비스</td><td><strong>가장 완전한 패키지</strong>: 집단등기 + 단체등기 + 집단대출 + 하자보수 + 입주박람회 + 사전점검 지원 6종 풀서비스</td></tr>
+    <tr><td>핵심 강점</td><td>입주박람회 기획·운영 역량 보유 → 입예협이 원하는 비법률적 서비스까지 원스톱 제공</td></tr>
+    <tr><td>약점</td><td>소규모 로펌으로 변호사 인력 한계. AI 상담 없음. 디지털 채널 기본 수준</td></tr>
+  </tbody>
 </table>
+
 <h3>3.3 법무법인 산하 외</h3>
 <table>
-<thead><tr><th>로펌</th><th>입예협 서비스</th><th>약점</th></tr></thead>
-<tbody>
-<tr><td>법무법인 산하</td><td>소유권이전등기·근저당권설정등기 업무, 입예협 MOU 체결 방식</td><td>법률 자문 약함. 디지털 취약</td></tr>
-<tr><td>법무법인 아크로</td><td>건설·부동산 전문. 하자소송 중심 (URL: lawnspace.co.kr)</td><td>입예협 전용 서비스 구조 없음</td></tr>
-<tr><td>법무법인 동승·서울제일·송천</td><td>하자소송 개별 수임</td><td>입예협 체계적 관리 없음</td></tr>
-</tbody>
+  <thead><tr><th>로펌</th><th>입예협 서비스</th><th>약점</th></tr></thead>
+  <tbody>
+    <tr><td>법무법인 산하</td><td>소유권이전등기·근저당권설정등기 업무, 입예협 MOU 체결 방식</td><td>법률 자문 약함. 디지털 취약</td></tr>
+    <tr><td>법무법인 아크로</td><td>건설·부동산 전문. 하자소송 중심 (URL: lawnspace.co.kr)</td><td>입예협 전용 서비스 구조 없음</td></tr>
+    <tr><td>법무법인 동승·서울제일·송천</td><td>하자소송 개별 수임</td><td>입예협 체계적 관리 없음</td></tr>
+  </tbody>
 </table>
+
 <h3>3.4 황해 vs 경쟁사 격차 분석</h3>
 <table>
-<thead>
-<tr><th>항목</th><th>황해 현재</th><th>태성</th><th>청연</th><th>황해 목표</th></tr>
-</thead>
-<tbody>
-<tr><td>입예협 전용 홈페이지</td><td>❌</td><td>△ (하위 페이지)</td><td>△ (하위 페이지)</td><td><strong>✅ 독립 플랫폼</strong></td></tr>
-<tr><td>AI 법률 상담</td><td>❌</td><td>❌</td><td>❌</td><td><strong>✅ 업계 최초</strong></td></tr>
-<tr><td>24시간 응답</td><td>❌</td><td>❌</td><td>❌</td><td><strong>✅ AI 즉시 응답</strong></td></tr>
-<tr><td>등기 비용 계산기</td><td>❌</td><td>❌</td><td>❌</td><td><strong>✅ 온라인 계산기</strong></td></tr>
-<tr><td>등기 진행 확인 시스템</td><td>❌</td><td>✅ (eregister)</td><td>❌</td><td>✅ 대시보드</td></tr>
-<tr><td>무료 법률 자문</td><td>✅ (수동)</td><td>✅ (수동)</td><td>✅ (수동)</td><td>✅ AI 자동화</td></tr>
-<tr><td>입주박람회 지원</td><td>❌</td><td>❌</td><td>✅</td><td>제휴 방식</td></tr>
-<tr><td>하자소송 연계</td><td>✅</td><td>✅ (강)</td><td>△</td><td>✅ AI로 연결</td></tr>
-</tbody>
+  <thead>
+    <tr><th>항목</th><th>황해 현재</th><th>태성</th><th>청연</th><th>황해 목표</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>입예협 전용 홈페이지</td><td>❌</td><td>△ (하위 페이지)</td><td>△ (하위 페이지)</td><td><strong>✅ 독립 플랫폼</strong></td></tr>
+    <tr><td>AI 법률 상담</td><td>❌</td><td>❌</td><td>❌</td><td><strong>✅ 업계 최초</strong></td></tr>
+    <tr><td>24시간 응답</td><td>❌</td><td>❌</td><td>❌</td><td><strong>✅ AI 즉시 응답</strong></td></tr>
+    <tr><td>등기 비용 계산기</td><td>❌</td><td>❌</td><td>❌</td><td><strong>✅ 온라인 계산기</strong></td></tr>
+    <tr><td>등기 진행 확인 시스템</td><td>❌</td><td>✅ (eregister)</td><td>❌</td><td>✅ 대시보드</td></tr>
+    <tr><td>무료 법률 자문</td><td>✅ (수동)</td><td>✅ (수동)</td><td>✅ (수동)</td><td>✅ AI 자동화</td></tr>
+    <tr><td>입주박람회 지원</td><td>❌</td><td>❌</td><td>✅</td><td>제휴 방식</td></tr>
+    <tr><td>하자소송 연계</td><td>✅</td><td>✅ (강)</td><td>△</td><td>✅ AI로 연결</td></tr>
+  </tbody>
+</table>
+
+
+<h3>3.5 경쟁사 등기관리시스템 분석 (eregister.co.kr) <span class="new-badge">v2.0 추가</span></h3>
+<p>법무법인 태성이 운영하는 <strong>eregister.co.kr</strong>은 입예협 시장에서 유일하게 외부에 공개된 등기관리 시스템이다. 실제 사이트를 분석하여 우리 시스템 기획의 기준점으로 삼는다.</p>
+
+<h4>시스템 구성 — 3탭 구조</h4>
+<div class="wf">
+  <div class="wf-h">eregister.co.kr 사이트 구성</div>
+  <div class="wf-b">
+    <div class="grid3" style="margin-bottom:12px;">
+      <div class="wf-block">'태성' 소개</div>
+      <div class="wf-dark wf-block">등기 정보조회</div>
+      <div class="wf-block">입주자 협의회</div>
+    </div>
+    <div class="grid2" style="gap:16px;">
+      <div>
+        <div style="font-size:12px;font-weight:700;margin-bottom:8px;">탭 2. 등기 정보조회 (개인용)</div>
+        <div style="display:flex;flex-direction:column;gap:6px;font-size:12px;">
+          <div class="wf-block">아파트 선택 (드롭다운)</div>
+          <div class="wf-block">동 / 호수 입력</div>
+          <div class="wf-block">생년월일 6자리 입력</div>
+          <div class="wf-dark wf-block">조회하기 →</div>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:12px;font-weight:700;margin-bottom:8px;">탭 3. 입주자 협의회 (운영진용)</div>
+        <div style="display:flex;flex-direction:column;gap:6px;font-size:12px;">
+          <div class="wf-block">아이디 입력</div>
+          <div class="wf-block">패스워드 입력</div>
+          <div class="wf-dark wf-block">로그인 →</div>
+        </div>
+      </div>
+    </div>
+    <div style="font-size:11.5px;color:#888;margin-top:8px;">⓪ 상단 우측: ERP 로그인 버튼 (직원 전용 통합등기 ERP 별도 운영) | 푸터: 대법원인터넷등기소·민원24·세움터·위텍스·이텍스 바로가기</div>
+  </div>
+</div>
+
+<h4>기능·기술·보안 수준 분석</h4>
+<table>
+  <thead><tr><th>항목</th><th>태성 eregister 현황</th><th>황해가 노릴 개선점</th></tr></thead>
+  <tbody>
+    <tr><td><strong>개인 인증</strong></td><td>생년월일 6자리 — 브루트포스 공격에 취약, 개인정보보호법 기준 미달 가능</td><td><strong>카카오 간편인증 또는 휴대폰 본인인증</strong>으로 보안·신뢰도 압도</td></tr>
+    <tr><td><strong>기술 스택</strong></td><td>2017년 제작(© LAW FIRM TAESUNG, 2017). 프레임워크 미사용, 반응형 미지원</td><td><strong>Next.js + Vercel</strong>로 모바일 완벽 지원, 배포 자동화</td></tr>
+    <tr><td><strong>UX / 시각화</strong></td><td>텍스트 결과 단순 출력. 진행 상태 시각화 없음. 알림 기능 없음.</td><td><strong>타임라인 대시보드</strong> + 단계별 상태 색상 + 카카오 알림톡 자동 발송</td></tr>
+    <tr><td><strong>모바일</strong></td><td>❌ 완전히 미지원 (2017년 당시 기준)</td><td><strong>✅ 모바일 퍼스트</strong> — 대부분의 입주예정자가 스마트폰으로 접속</td></tr>
+    <tr><td><strong>관리자 기능</strong></td><td>입예협 운영진 별도 로그인 → 단지 일괄 현황 확인</td><td>동일 기능 유지 + 서류 보완 요청·공지 발송 기능 추가</td></tr>
+  </tbody>
 </table>
 <div class="callout red">
-<strong>핵심 격차: 디지털 선점 기회</strong>
+  <strong>핵심 결론: 태성이 선점했지만, 기술은 낡았다.</strong>
+  eregister.co.kr은 입예협 시장에서 "등기 현황 온라인 조회"라는 개념을 선점한 점에서 위협적이다. 그러나 2017년 수준의 기술·보안·UX는 현재 기준으로 명백히 취약하다. <strong>황해가 모바일 최적화·강화 인증·시각적 대시보드·알림 기능을 갖춘 시스템을 출시하면, 기능은 같으되 완성도는 압도적으로 높은 차별화 포인트가 된다.</strong>
+</div>
+<div class="callout red">
+  <strong>핵심 격차: 디지털 선점 기회</strong>
   현재 입예협 전용 독립 홈페이지를 운영하는 로펌이 없고, AI 상담을 도입한 로펌도 없다. 황해가 먼저 출시하면 "입예협 법률 AI 플랫폼" 카테고리를 업계 최초로 선점하는 효과가 발생한다. 단, 태성이 eregister.co.kr로 등기 진행 확인 시스템을 선제 구축한 점은 위협 요소다.
 </div>
 </section>
+
 <!-- ============================= PART 3 ============================= -->
 <div class="part-divider">PART 3 — 플랫폼 전략 방향</div>
+
 <section id="p3s1">
 <h2>4. 플랫폼 전략 방향</h2>
+
 <h3>4.1 기획 방향 및 서비스 컨셉</h3>
+
 <div class="callout">
-<strong>핵심 컨셉: "우리 단지 전담 법률 파트너 — 입주 전부터 하자소송까지"</strong>
+  <strong>핵심 컨셉: "우리 단지 전담 법률 파트너 — 입주 전부터 하자소송까지"</strong>
   단순 등기 대행 업체가 아닌, 입주예정자협의회와 개별 입주예정자 모두를 위한 법률 AI 플랫폼. 협의회에는 집단적 법적 쟁점을 분석하는 의견서 AI를, 개인에게는 내 상황을 파악해 사건화까지 이어주는 사실관계 수집 AI를 제공한다.
 </div>
+
 <table>
-<thead><tr><th>이용자</th><th>제공 서비스</th><th>황해의 수익</th></tr></thead>
-<tbody>
-<tr>
-<td><strong>입예협 (B2B)</strong><br/>협의회 임원·운영진</td>
-<td>AI가 단지 법적 쟁점 파악 → 법적 의견서 초안 자동 생성 → 변호사 최종 검토 후 공식 의견서 발송</td>
-<td>집단등기 수임 + 집단 법률 자문 계약 + 집단 하자소송</td>
-</tr>
-<tr>
-<td><strong>입주예정자 개인 (B2C)</strong><br/>수분양자 개인</td>
-<td>AI가 개인의 법적 고민을 사실관계 질문으로 구체화 → 사건화 가능성 판단 → 염가 착수비로 변호사 수임 연결</td>
-<td>개인 법률 사건 수임 (분양계약 분쟁, 개인 하자, 분양권 전매 등)</td>
-</tr>
-</tbody>
+  <thead><tr><th>이용자</th><th>제공 서비스</th><th>황해의 수익</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><strong>입예협 (B2B)</strong><br>협의회 임원·운영진</td>
+      <td>AI가 단지 법적 쟁점 파악 → 법적 의견서 초안 자동 생성 → 변호사 최종 검토 후 공식 의견서 발송</td>
+      <td>집단등기 수임 + 집단 법률 자문 계약 + 집단 하자소송</td>
+    </tr>
+    <tr>
+      <td><strong>입주예정자 개인 (B2C)</strong><br>수분양자 개인</td>
+      <td>AI가 개인의 법적 고민을 사실관계 질문으로 구체화 → 사건화 가능성 판단 → 염가 착수비로 변호사 수임 연결</td>
+      <td>개인 법률 사건 수임 (분양계약 분쟁, 개인 하자, 분양권 전매 등)</td>
+    </tr>
+  </tbody>
 </table>
+
 <h3>4.2 classaction 사이트 디자인 시스템 활용 전략</h3>
+
 <p>기존 <strong>classaction.lawfirmthe-h.com</strong>의 디자인을 최대한 재사용한다. 이 사이트는 이미 다음 디자인 요소가 완성되어 있다:</p>
+
 <table>
-<thead><tr><th>디자인 요소</th><th>기존 값</th><th>입예협 버전 처리</th></tr></thead>
-<tbody>
-<tr><td>Primary 색상</td><td><code>#2C3E50</code> (다크 네이비)</td><td><strong>그대로 유지</strong></td></tr>
-<tr><td>CTA 버튼</td><td>Pill shape, #2C3E50 배경, 흰 텍스트</td><td>그대로 유지</td></tr>
-<tr><td>카드 컴포넌트</td><td>흰 배경, 8~12px 둥근 모서리, 은은한 그림자</td><td>그대로 유지</td></tr>
-<tr><td>히어로 슬라이더</td><td>6개 슬라이드, 좌측 전체 이미지 + 우측 퀵 패널</td><td>5개 서비스 슬라이드로 교체</td></tr>
-<tr><td>섹션 구조</td><td>헤더 → 히어로 → 카드섹션 → 뉴스 → 미디어 → 푸터</td><td>AI 상담 섹션 1개 신규 삽입</td></tr>
-<tr><td>팝업 모달</td><td>하루안보기 + 닫기, CTA 버튼</td><td>집단등기 모집 공지로 교체</td></tr>
-<tr><td>플로팅 버튼</td><td>카카오 문의 + 상단이동</td><td>AI 상담 버튼 1개 추가</td></tr>
-</tbody>
+  <thead><tr><th>디자인 요소</th><th>기존 값</th><th>입예협 버전 처리</th></tr></thead>
+  <tbody>
+    <tr><td>Primary 색상</td><td><code>#2C3E50</code> (다크 네이비)</td><td><strong>그대로 유지</strong></td></tr>
+    <tr><td>CTA 버튼</td><td>Pill shape, #2C3E50 배경, 흰 텍스트</td><td>그대로 유지</td></tr>
+    <tr><td>카드 컴포넌트</td><td>흰 배경, 8~12px 둥근 모서리, 은은한 그림자</td><td>그대로 유지</td></tr>
+    <tr><td>히어로 슬라이더</td><td>6개 슬라이드, 좌측 전체 이미지 + 우측 퀵 패널</td><td>5개 서비스 슬라이드로 교체</td></tr>
+    <tr><td>섹션 구조</td><td>헤더 → 히어로 → 카드섹션 → 뉴스 → 미디어 → 푸터</td><td>AI 상담 섹션 1개 신규 삽입</td></tr>
+    <tr><td>팝업 모달</td><td>하루안보기 + 닫기, CTA 버튼</td><td>집단등기 모집 공지로 교체</td></tr>
+    <tr><td>플로팅 버튼</td><td>카카오 문의 + 상단이동</td><td>AI 상담 버튼 1개 추가</td></tr>
+  </tbody>
 </table>
+
 <h3>4.3 사이트 전체 구조 (URL 설계)</h3>
 <table>
-<thead><tr><th>URL</th><th>페이지명</th><th>유형</th><th>우선순위</th></tr></thead>
-<tbody>
-<tr><td><code>/</code></td><td>메인 홈</td><td>교체</td><td><span class="p1">P1</span></td></tr>
-<tr><td><code>/register</code></td><td>집단등기 신청</td><td>교체</td><td><span class="p1">P1</span></td></tr>
-<tr><td><code>/calculator</code></td><td>집단등기 비용 계산기</td><td>신규</td><td><span class="p1">P1</span></td></tr>
-<tr><td><code>/ai-consult</code></td><td>AI 법률 상담 &amp; FAQ</td><td>교체</td><td><span class="p1">P1</span></td></tr>
-<tr><td><code>/districts</code></td><td>담당 단지 현황 전체</td><td>신규</td><td><span class="p2">P2</span></td></tr>
-<tr><td><code>/districts/[id]</code></td><td>단지 상세</td><td>신규</td><td><span class="p2">P2</span></td></tr>
-<tr><td><code>/opinion</code></td><td>입예협 전용 — 법적 쟁점 파악 AI (B2B)</td><td>신규</td><td><span class="p2">P2</span></td></tr>
-<tr><td><code>/guide/registration</code></td><td>집단등기 절차 가이드</td><td>신규</td><td><span class="p2">P2</span></td></tr>
-<tr><td><code>/guide/defect</code></td><td>하자담보책임 기간표</td><td>신규</td><td><span class="p2">P2</span></td></tr>
-<tr><td><code>/api/chat</code></td><td>AI 챗봇 API</td><td>서버</td><td><span class="p1">P1</span></td></tr>
-<tr><td><code>/api/register</code></td><td>집단등기 신청 폼 API</td><td>서버</td><td><span class="p1">P1</span></td></tr>
-<tr><td><code>/api/opinion</code></td><td>입예협 의견서 생성 API</td><td>서버</td><td><span class="p2">P2</span></td></tr>
-</tbody>
+  <thead><tr><th>URL</th><th>페이지명</th><th>유형</th><th>우선순위</th></tr></thead>
+  <tbody>
+    <tr><td><code>/</code></td><td>메인 홈</td><td>교체</td><td><span class="p1">P1</span></td></tr>
+    <tr><td><code>/register</code></td><td>집단등기 신청</td><td>교체</td><td><span class="p1">P1</span></td></tr>
+    <tr><td><code>/calculator</code></td><td>집단등기 비용 계산기</td><td>신규</td><td><span class="p1">P1</span></td></tr>
+    <tr><td><code>/ai-consult</code></td><td>AI 법률 상담 & FAQ</td><td>교체</td><td><span class="p1">P1</span></td></tr>
+    <tr><td><code>/districts</code></td><td>담당 단지 현황 전체</td><td>신규</td><td><span class="p2">P2</span></td></tr>
+    <tr><td><code>/districts/[id]</code></td><td>단지 상세</td><td>신규</td><td><span class="p2">P2</span></td></tr>
+    <tr><td><code>/opinion</code></td><td>입예협 전용 — 법적 쟁점 파악 AI (B2B)</td><td>신규</td><td><span class="p2">P2</span></td></tr>
+    <tr><td><code>/guide/registration</code></td><td>집단등기 절차 가이드</td><td>신규</td><td><span class="p2">P2</span></td></tr>
+    <tr><td><code>/guide/defect</code></td><td>하자담보책임 기간표</td><td>신규</td><td><span class="p2">P2</span></td></tr>
+    <tr><td><code>/api/chat</code></td><td>AI 챗봇 API</td><td>서버</td><td><span class="p1">P1</span></td></tr>
+    <tr><td><code>/api/register</code></td><td>집단등기 신청 폼 API</td><td>서버</td><td><span class="p1">P1</span></td></tr>
+    <tr><td><code>/api/opinion</code></td><td>입예협 의견서 생성 API</td><td>서버</td><td><span class="p2">P2</span></td></tr>
+  </tbody>
 </table>
 </section>
+
 <!-- ============================= PART 4 ============================= -->
 <div class="part-divider">PART 4 — 페이지별 상세 설계</div>
+
 <section id="p4s1">
 <h2>5. 페이지별 상세 설계</h2>
+
 <h3>5.1 메인(홈) 페이지</h3>
+
 <div class="wf">
 <div class="wf-h">메인 페이지 레이아웃 — 변경 후</div>
 <div class="wf-b">
-<!-- 헤더 -->
-<div class="wf-dark wf-block" style="text-align:left;padding:10px 14px;margin-bottom:8px;">
-    HEADER: 법무법인 더 에이치 황해 / <strong>입주예정자 법률지원센터</strong>  |  [황해 홈] [집단등기 신청] [AI 법률 상담] [문의하기]
+  <!-- 헤더 -->
+  <div class="wf-dark wf-block" style="text-align:left;padding:10px 14px;margin-bottom:8px;">
+    HEADER: 법무법인 더 에이치 황해 / <strong>입주예정자 법률지원센터</strong> &nbsp;|&nbsp; [황해 홈] [집단등기 신청] [AI 법률 상담] [문의하기]
   </div>
-<!-- 히어로 -->
-<div class="wf-row">
-<div class="wf-gray wf-block wf-fill" style="height:240px;line-height:1.4;padding:16px;text-align:left;vertical-align:top;">
-<strong>히어로 슬라이더 (5개 자동 슬라이드)</strong><br/><br/>
-      슬라이드 1: [모집중] ○○아파트 집단등기<br/>
-      슬라이드 2: AI 법률 상담 — 24시간 즉시<br/>
-      슬라이드 3: 잔금대출 은행 무료 협상<br/>
-      슬라이드 4: 사전점검 하자 체크리스트<br/>
+  <!-- 히어로 -->
+  <div class="wf-row">
+    <div class="wf-gray wf-block wf-fill" style="height:240px;line-height:1.4;padding:16px;text-align:left;vertical-align:top;">
+      <strong>히어로 슬라이더 (5개 자동 슬라이드)</strong><br><br>
+      슬라이드 1: [모집중] ○○아파트 집단등기<br>
+      슬라이드 2: AI 법률 상담 — 24시간 즉시<br>
+      슬라이드 3: 잔금대출 은행 무료 협상<br>
+      슬라이드 4: 사전점검 하자 체크리스트<br>
       슬라이드 5: 입주 후 하자소송 연계
     </div>
-<div style="width:200px;display:flex;flex-direction:column;gap:8px;padding-left:8px;">
-<div class="wf-dark wf-block">집단등기 신청하기 →</div>
-<div class="wf-block">AI 법률 상담 시작 →</div>
-<div class="wf-block">등기 비용 계산기 →</div>
-</div>
-</div>
-<!-- 섹션1 -->
-<div style="background:#f8f8f8;padding:14px;margin:8px -16px;">
-<div style="font-size:12px;font-weight:700;margin-bottom:8px;">담당 단지 현황 (탭: 전체/모집중/진행중/완료)</div>
-<div class="grid4">
-<div class="wf-block" style="height:80px;font-size:11px;line-height:1.5;">아파트 이미지<br/>[모집중] 인천 송도<br/>○○더샵<br/>신청자: 248/700세대</div>
-<div class="wf-block" style="height:80px;font-size:11px;line-height:1.5;">아파트 이미지<br/>[진행중] 서울 강동<br/>○○포레나<br/>등기 진행중</div>
-<div class="wf-block" style="height:80px;font-size:11px;line-height:1.5;">아파트 이미지<br/>[완료] 경기 수원<br/>○○아이파크<br/>등기 완료</div>
-<div class="wf-block" style="height:80px;font-size:11px;line-height:1.5;">아파트 이미지<br/>[모집중] 인천 부평<br/>○○센트럴<br/>신청자: 89/430세대</div>
-</div>
-</div>
-<!-- 섹션2 -->
-<div style="padding:14px;margin:8px -16px;">
-<div style="font-size:12px;font-weight:700;margin-bottom:8px;">입주 법률 정보 (탭: 전체/집단등기/잔금대출/하자/분양권)</div>
-<div class="grid4">
-<div class="wf-block" style="height:70px;font-size:11px;">이미지<br/>[집단등기]<br/>2026년 취득세 계산법<br/>2026.03.01</div>
-<div class="wf-block" style="height:70px;font-size:11px;">이미지<br/>[잔금대출]<br/>DSR 40% 초과 시 대처법<br/>2026.02.25</div>
-<div class="wf-block" style="height:70px;font-size:11px;">이미지<br/>[하자]<br/>사전점검 하자 TOP 10<br/>2026.02.20</div>
-<div class="wf-block" style="height:70px;font-size:11px;">이미지<br/>[분양권]<br/>전매 제한 지역별 정리<br/>2026.02.15</div>
-</div>
-</div>
-<!-- 섹션3 AI (신규) -->
-<div style="background:#2c3e50;color:#fff;padding:14px;margin:8px -16px;">
-<div style="font-size:12px;font-weight:700;margin-bottom:8px;">【신규】 AI 법률 상담 — 집단등기·잔금대출·하자 24시간 즉시 답변</div>
-<div class="grid2" style="gap:12px;">
-<div>
-<div style="font-size:11px;margin-bottom:6px;">빠른 질문 버튼:</div>
-<div style="display:flex;flex-direction:column;gap:4px;">
-<div class="wf-block" style="font-size:11px;text-align:left;background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.3);color:#fff;">💰 집단등기 비용이 얼마나 드나요?</div>
-<div class="wf-block" style="font-size:11px;text-align:left;background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.3);color:#fff;">🏦 잔금대출 어떻게 전환하나요?</div>
-<div class="wf-block" style="font-size:11px;text-align:left;background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.3);color:#fff;">🔍 사전점검 하자 신고 방법은?</div>
-<div class="wf-block" style="font-size:11px;text-align:left;background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.3);color:#fff;">⏰ 입주 지연 보상 받을 수 있나요?</div>
-</div>
-</div>
-<div>
-<div style="font-size:11px;margin-bottom:6px;">챗봇 UI:</div>
-<div class="wf-block" style="height:110px;font-size:11px;background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.3);color:#fff;line-height:1.5;">
-          AI: 안녕하세요! 단지명을 알려주시면<br/>더 정확히 안내해 드릴 수 있어요 🏠<br/><br/>
+    <div style="width:200px;display:flex;flex-direction:column;gap:8px;padding-left:8px;">
+      <div class="wf-dark wf-block">집단등기 신청하기 →</div>
+      <div class="wf-block">AI 법률 상담 시작 →</div>
+      <div class="wf-block">등기 비용 계산기 →</div>
+    </div>
+  </div>
+  <!-- 섹션1 -->
+  <div style="background:#f8f8f8;padding:14px;margin:8px -16px;">
+    <div style="font-size:12px;font-weight:700;margin-bottom:8px;">담당 단지 현황 (탭: 전체/모집중/진행중/완료)</div>
+    <div class="grid4">
+      <div class="wf-block" style="height:80px;font-size:11px;line-height:1.5;">아파트 이미지<br>[모집중] 인천 송도<br>○○더샵<br>신청자: 248/700세대</div>
+      <div class="wf-block" style="height:80px;font-size:11px;line-height:1.5;">아파트 이미지<br>[진행중] 서울 강동<br>○○포레나<br>등기 진행중</div>
+      <div class="wf-block" style="height:80px;font-size:11px;line-height:1.5;">아파트 이미지<br>[완료] 경기 수원<br>○○아이파크<br>등기 완료</div>
+      <div class="wf-block" style="height:80px;font-size:11px;line-height:1.5;">아파트 이미지<br>[모집중] 인천 부평<br>○○센트럴<br>신청자: 89/430세대</div>
+    </div>
+  </div>
+  <!-- 섹션2 -->
+  <div style="padding:14px;margin:8px -16px;">
+    <div style="font-size:12px;font-weight:700;margin-bottom:8px;">입주 법률 정보 (탭: 전체/집단등기/잔금대출/하자/분양권)</div>
+    <div class="grid4">
+      <div class="wf-block" style="height:70px;font-size:11px;">이미지<br>[집단등기]<br>2026년 취득세 계산법<br>2026.03.01</div>
+      <div class="wf-block" style="height:70px;font-size:11px;">이미지<br>[잔금대출]<br>DSR 40% 초과 시 대처법<br>2026.02.25</div>
+      <div class="wf-block" style="height:70px;font-size:11px;">이미지<br>[하자]<br>사전점검 하자 TOP 10<br>2026.02.20</div>
+      <div class="wf-block" style="height:70px;font-size:11px;">이미지<br>[분양권]<br>전매 제한 지역별 정리<br>2026.02.15</div>
+    </div>
+  </div>
+  <!-- 섹션3 AI (신규) -->
+  <div style="background:#2c3e50;color:#fff;padding:14px;margin:8px -16px;">
+    <div style="font-size:12px;font-weight:700;margin-bottom:8px;">【신규】 AI 법률 상담 — 집단등기·잔금대출·하자 24시간 즉시 답변</div>
+    <div class="grid2" style="gap:12px;">
+      <div>
+        <div style="font-size:11px;margin-bottom:6px;">빠른 질문 버튼:</div>
+        <div style="display:flex;flex-direction:column;gap:4px;">
+          <div class="wf-block" style="font-size:11px;text-align:left;background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.3);color:#fff;">💰 집단등기 비용이 얼마나 드나요?</div>
+          <div class="wf-block" style="font-size:11px;text-align:left;background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.3);color:#fff;">🏦 잔금대출 어떻게 전환하나요?</div>
+          <div class="wf-block" style="font-size:11px;text-align:left;background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.3);color:#fff;">🔍 사전점검 하자 신고 방법은?</div>
+          <div class="wf-block" style="font-size:11px;text-align:left;background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.3);color:#fff;">⏰ 입주 지연 보상 받을 수 있나요?</div>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:11px;margin-bottom:6px;">챗봇 UI:</div>
+        <div class="wf-block" style="height:110px;font-size:11px;background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.3);color:#fff;line-height:1.5;">
+          AI: 안녕하세요! 단지명을 알려주시면<br>더 정확히 안내해 드릴 수 있어요 🏠<br><br>
           [질문 입력창...] [전송 →]
         </div>
-<div class="wf-block" style="font-size:11px;margin-top:6px;border-color:rgba(255,255,255,0.5);color:#fff;">
+        <div class="wf-block" style="font-size:11px;margin-top:6px;border-color:rgba(255,255,255,0.5);color:#fff;">
           변호사에게 직접 문의하기 →
         </div>
-</div>
-</div>
-</div>
-<!-- 섹션4 가이드 -->
-<div style="background:#f8f8f8;padding:14px;margin:8px -16px;">
-<div style="font-size:12px;font-weight:700;margin-bottom:8px;">입주 준비 가이드</div>
-<div style="display:grid;grid-template-columns:repeat(6,1fr);gap:8px;">
-<div class="wf-gray wf-block" style="height:56px;font-size:10.5px;">집단등기<br/>절차 가이드</div>
-<div class="wf-gray wf-block" style="height:56px;font-size:10.5px;">등기 비용<br/>계산기</div>
-<div class="wf-gray wf-block" style="height:56px;font-size:10.5px;">잔금대출<br/>비교 가이드</div>
-<div class="wf-gray wf-block" style="height:56px;font-size:10.5px;">사전점검<br/>체크리스트</div>
-<div class="wf-gray wf-block" style="height:56px;font-size:10.5px;">하자담보<br/>책임 기간표</div>
-<div class="wf-gray wf-block" style="height:56px;font-size:10.5px;">분양권<br/>전매 가이드</div>
-</div>
-</div>
-<!-- 푸터 -->
-<div class="wf-dark wf-block" style="margin-top:8px;text-align:center;padding:12px;">
+      </div>
+    </div>
+  </div>
+  <!-- 섹션4 가이드 -->
+  <div style="background:#f8f8f8;padding:14px;margin:8px -16px;">
+    <div style="font-size:12px;font-weight:700;margin-bottom:8px;">입주 준비 가이드</div>
+    <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:8px;">
+      <div class="wf-gray wf-block" style="height:56px;font-size:10.5px;">집단등기<br>절차 가이드</div>
+      <div class="wf-gray wf-block" style="height:56px;font-size:10.5px;">등기 비용<br>계산기</div>
+      <div class="wf-gray wf-block" style="height:56px;font-size:10.5px;">잔금대출<br>비교 가이드</div>
+      <div class="wf-gray wf-block" style="height:56px;font-size:10.5px;">사전점검<br>체크리스트</div>
+      <div class="wf-gray wf-block" style="height:56px;font-size:10.5px;">하자담보<br>책임 기간표</div>
+      <div class="wf-gray wf-block" style="height:56px;font-size:10.5px;">분양권<br>전매 가이드</div>
+    </div>
+  </div>
+  <!-- 푸터 -->
+  <div class="wf-dark wf-block" style="margin-top:8px;text-align:center;padding:12px;">
     FOOTER: 주소 | 사업자번호 | 전화 | 카카오·블로그·인스타
   </div>
 </div>
 </div>
+
 <h3>5.2 집단등기 신청 페이지 (/register)</h3>
 <table>
-<thead><tr><th>섹션</th><th>내용</th><th>기능</th></tr></thead>
-<tbody>
-<tr><td>히어로</td><td>아파트 이미지 + "집단등기 신청" 타이틀</td><td>기존 franchise 페이지 히어로 구조 재사용</td></tr>
-<tr><td>우측 퀵패널</td><td>집단등기 신청하기 / 비용 계산기 / AI 상담</td><td>앵커 스크롤</td></tr>
-<tr><td>타임라인</td><td>① 계약 ② 서류수집 ③ 등기신청 ④ 완료 ⑤ 열람</td><td>5단계 수평 타임라인</td></tr>
-<tr><td>비용 계산기 (인라인)</td><td>분양가 입력 → 취득세+수수료 즉시 계산</td><td>JavaScript 계산 로직</td></tr>
-<tr><td>신청 폼 <code>#register-form</code></td><td>이름/연락처/단지명/입주예정일/세대수/역할/문의내용/개인정보동의</td><td>서버 API 제출 → 이메일+알림톡 발송</td></tr>
-<tr><td>하단 서비스 안내</td><td>AI 법률 상담 / 잔금대출 지원 / 하자소송 연계 3카드</td><td>기존 "다른 소송 안내" 카드 구조 재사용</td></tr>
-</tbody>
+  <thead><tr><th>섹션</th><th>내용</th><th>기능</th></tr></thead>
+  <tbody>
+    <tr><td>히어로</td><td>아파트 이미지 + "집단등기 신청" 타이틀</td><td>기존 franchise 페이지 히어로 구조 재사용</td></tr>
+    <tr><td>우측 퀵패널</td><td>집단등기 신청하기 / 비용 계산기 / AI 상담</td><td>앵커 스크롤</td></tr>
+    <tr><td>타임라인</td><td>① 계약 ② 서류수집 ③ 등기신청 ④ 완료 ⑤ 열람</td><td>5단계 수평 타임라인</td></tr>
+    <tr><td>비용 계산기 (인라인)</td><td>분양가 입력 → 취득세+수수료 즉시 계산</td><td>JavaScript 계산 로직</td></tr>
+    <tr><td>신청 폼 <code>#register-form</code></td><td>이름/연락처/단지명/입주예정일/세대수/역할/문의내용/개인정보동의</td><td>서버 API 제출 → 이메일+알림톡 발송</td></tr>
+    <tr><td>하단 서비스 안내</td><td>AI 법률 상담 / 잔금대출 지원 / 하자소송 연계 3카드</td><td>기존 "다른 소송 안내" 카드 구조 재사용</td></tr>
+  </tbody>
 </table>
+
 <h4>신청 폼 필드</h4>
 <table>
-<thead><tr><th>필드</th><th>타입</th><th>필수</th><th>비고</th></tr></thead>
-<tbody>
-<tr><td>이름</td><td>text</td><td>✅</td><td>2자 이상</td></tr>
-<tr><td>연락처</td><td>tel</td><td>✅</td><td>010-XXXX-XXXX 형식 자동 포맷</td></tr>
-<tr><td>아파트 단지명</td><td>text</td><td>✅</td><td>자동완성(등록 단지 목록)</td></tr>
-<tr><td>입주 예정일</td><td>month</td><td>권장</td><td>현재 이후만 선택 가능</td></tr>
-<tr><td>총 세대수 (예상)</td><td>number</td><td>권장</td><td>양수 정수</td></tr>
-<tr><td>신청 역할</td><td>select</td><td>선택</td><td>입예협 운영진 / 일반 수분양자 / 기타</td></tr>
-<tr><td>문의 내용</td><td>textarea</td><td>선택</td><td>최대 500자</td></tr>
-<tr><td>개인정보 수집 동의</td><td>checkbox</td><td>✅</td><td>체크 미완료 시 제출 불가</td></tr>
-</tbody>
+  <thead><tr><th>필드</th><th>타입</th><th>필수</th><th>비고</th></tr></thead>
+  <tbody>
+    <tr><td>이름</td><td>text</td><td>✅</td><td>2자 이상</td></tr>
+    <tr><td>연락처</td><td>tel</td><td>✅</td><td>010-XXXX-XXXX 형식 자동 포맷</td></tr>
+    <tr><td>아파트 단지명</td><td>text</td><td>✅</td><td>자동완성(등록 단지 목록)</td></tr>
+    <tr><td>입주 예정일</td><td>month</td><td>권장</td><td>현재 이후만 선택 가능</td></tr>
+    <tr><td>총 세대수 (예상)</td><td>number</td><td>권장</td><td>양수 정수</td></tr>
+    <tr><td>신청 역할</td><td>select</td><td>선택</td><td>입예협 운영진 / 일반 수분양자 / 기타</td></tr>
+    <tr><td>문의 내용</td><td>textarea</td><td>선택</td><td>최대 500자</td></tr>
+    <tr><td>개인정보 수집 동의</td><td>checkbox</td><td>✅</td><td>체크 미완료 시 제출 불가</td></tr>
+  </tbody>
 </table>
+
 <h3>5.3 집단등기 비용 계산기 (/calculator)</h3>
+
 <h4>취득세 계산 로직 (2026년 기준)</h4>
 <table>
-<thead><tr><th>취득가액 구간</th><th>취득세율</th><th>지방교육세</th><th>농특세</th><th>합계</th></tr></thead>
-<tbody>
-<tr><td>6억 이하</td><td>1.0%</td><td>0.1%</td><td>—</td><td><strong>1.1%</strong></td></tr>
-<tr><td>6억 초과 ~ 9억 이하</td><td>비례 (1~3%)</td><td>0.1~0.3%</td><td>—</td><td><strong>약 1.1~3.3%</strong></td></tr>
-<tr><td>9억 초과</td><td>3.0%</td><td>0.3%</td><td>0.2%</td><td><strong>3.5%</strong></td></tr>
-<tr><td>생애최초 (85㎡ 이하)</td><td>0.5% (200만원 한도)</td><td>면제</td><td>면제</td><td><strong>최대 200만원</strong></td></tr>
-</tbody>
+  <thead><tr><th>취득가액 구간</th><th>취득세율</th><th>지방교육세</th><th>농특세</th><th>합계</th></tr></thead>
+  <tbody>
+    <tr><td>6억 이하</td><td>1.0%</td><td>0.1%</td><td>—</td><td><strong>1.1%</strong></td></tr>
+    <tr><td>6억 초과 ~ 9억 이하</td><td>비례 (1~3%)</td><td>0.1~0.3%</td><td>—</td><td><strong>약 1.1~3.3%</strong></td></tr>
+    <tr><td>9억 초과</td><td>3.0%</td><td>0.3%</td><td>0.2%</td><td><strong>3.5%</strong></td></tr>
+    <tr><td>생애최초 (85㎡ 이하)</td><td>0.5% (200만원 한도)</td><td>면제</td><td>면제</td><td><strong>최대 200만원</strong></td></tr>
+  </tbody>
 </table>
+
 <h4>출력 결과 화면 구성</h4>
 <ul>
-<li><strong>취득세</strong>: X,XXX,XXX원 (Primary 박스 강조)</li>
-<li><strong>지방교육세 + 농특세</strong>: XXX,XXX원</li>
-<li><strong>등기 수수료 (개인등기 추정)</strong>: XXX,XXX원~XXX,XXX원</li>
-<li><strong>집단등기 할인 적용 수수료</strong>: XXX,XXX원~XXX,XXX원 (하이라이트)</li>
-<li><strong>집단등기 절감 예상액</strong>: 약 XXX,XXX원 절감 ← 핵심 전환 메시지</li>
-<li>하단 CTA: "집단등기 신청하기 →" + "담당 변호사에게 정확한 비용 문의하기"</li>
+  <li><strong>취득세</strong>: X,XXX,XXX원 (Primary 박스 강조)</li>
+  <li><strong>지방교육세 + 농특세</strong>: XXX,XXX원</li>
+  <li><strong>등기 수수료 (개인등기 추정)</strong>: XXX,XXX원~XXX,XXX원</li>
+  <li><strong>집단등기 할인 적용 수수료</strong>: XXX,XXX원~XXX,XXX원 (하이라이트)</li>
+  <li><strong>집단등기 절감 예상액</strong>: 약 XXX,XXX원 절감 ← 핵심 전환 메시지</li>
+  <li>하단 CTA: "집단등기 신청하기 →" + "담당 변호사에게 정확한 비용 문의하기"</li>
 </ul>
-<h3>5.4 담당 단지 현황 (/districts)</h3><p>담당 단지들을 카드 형태로 보여주고, 단지 클릭 시 아래의 상세 페이지로 이동합니다.</p>
 
-<h3>5.5 AI 상담 &amp; FAQ 페이지 (/ai-consult)</h3>
+<h3>5.4 담당 단지 현황 (/districts)</h3>
 <ul>
-<li><strong>상단</strong>: 페이지 헤더 (뱃지: [AI 상담] + 제목: "입주예정자 AI 법률 상담") — 기존 FAQ 헤더 구조 재사용</li>
-<li><strong>섹션1</strong>: AI 챗봇 임베드 (전체 너비) — B2C 개인 상담용</li>
-<li><strong>섹션2</strong>: 입예협 운영진 전용 링크 — "협의회 법적 쟁점 파악 → 의견서 요청" → /opinion</li>
-<li><strong>섹션3</strong>: 카테고리별 FAQ 아코디언 (집단등기/잔금대출/하자/분양계약/분양권)</li>
-<li><strong>하단</strong>: "더 자세한 상담은 담당 변호사와 직접 연결" + 카카오 상담 버튼</li>
+  <li><strong>검색/필터</strong>: 단지명 텍스트 검색, 지역(서울/인천/경기/기타), 상태(모집중/진행중/완료), 정렬(최신순/입주예정일/세대수)</li>
+  <li><strong>카드 그리드</strong>: 아파트 이미지 + 지역 태그 + 단지명 + 상태 + 세대수/신청자 수</li>
+  <li><strong>단지 클릭</strong>: 상세 모달 — 단지명/위치/세대수/입주예정일/담당 변호사/현재 신청자/CTA 버튼</li>
 </ul>
-</section>
-<!-- ============================= PART 5 ============================= -->
 
-<h3 id="p4s1-4"><span class="new">v2.0</span> 담당 단지 상세 페이지 (/districts/[id])</h3>
-<p>단지 목록에서 특정 단지를 클릭했을 때 보이는 페이지. 입주예정자들에게 '우리 단지 전용 공간'이라는 인식을 준다.</p>
+<h3>5.5 AI 상담 & FAQ 페이지 (/ai-consult)</h3>
+<ul>
+  <li><strong>상단</strong>: 페이지 헤더 (뱃지: [AI 상담] + 제목: "입주예정자 AI 법률 상담") — 기존 FAQ 헤더 구조 재사용</li>
+  <li><strong>섹션1</strong>: AI 챗봇 임베드 (전체 너비) — B2C 개인 상담용</li>
+  <li><strong>섹션2</strong>: 입예협 운영진 전용 링크 — "협의회 법적 쟁점 파악 → 의견서 요청" → /opinion</li>
+  <li><strong>섹션3</strong>: 카테고리별 FAQ 아코디언 (집단등기/잔금대출/하자/분양계약/분양권)</li>
+  <li><strong>하단</strong>: "더 자세한 상담은 담당 변호사와 직접 연결" + 카카오 상담 버튼</li>
+</ul>
+
+<h3>5.6 담당 단지 상세 페이지 (/districts/[id]) <span class="new-badge">v2.0 추가</span></h3>
+<p>단지 목록에서 특정 단지 카드를 클릭하면 이동하는 전용 페이지. 입주예정자들에게 <strong>"우리 단지 전용 공간"</strong>이라는 인식을 준다.</p>
+
 <div class="wf">
-<div class="wf-h">단지 상세 페이지 — 와이어프레임</div>
-<div class="wf-b">
-<div class="wf-gray wf-block" style="height:120px; line-height:1.2; text-align:left; padding:16px;">
-<h3 style="font-size:16px;">인천 송도 ○○더샵 1차</h3>
-<span style="font-size:12px; color:#555;">총 850세대 | 2026년 5월 입주 예정 | 담당 변호사: 김도유</span><br/>
-<div style="background:#555; height:8px; border-radius:4px; margin-top:8px;">
-<div style="background:#197; width:35%; height:8px; border-radius:4px;"></div>
+  <div class="wf-h">단지 상세 페이지 — 전체 레이아웃</div>
+  <div class="wf-b">
+    <div class="wf-gray wf-block" style="text-align:left;padding:16px;margin-bottom:8px;">
+      <strong style="font-size:15px;">인천 송도 ○○더샵 1차</strong><br>
+      <span style="font-size:12px;color:#555;">총 850세대 &nbsp;|&nbsp; 2026년 5월 입주 예정 &nbsp;|&nbsp; 담당 변호사: 김도유</span><br>
+      <div style="background:#ccc;height:8px;border-radius:4px;margin-top:8px;position:relative;">
+        <div style="background:#2C3E50;width:35%;height:8px;border-radius:4px;"></div>
+      </div>
+      <span style="font-size:11px;">신청 298 / 850세대 완료 (35%)</span>
+      &nbsp;&nbsp;
+      <span style="font-size:11px;font-weight:700;border:1px solid #2C3E50;padding:2px 8px;">모집중</span>
+    </div>
+
+    <div class="grid4" style="margin-bottom:12px;">
+      <div class="wf-dark wf-block">📢 단지 공지사항</div>
+      <div class="wf-block">📋 등기 진행현황</div>
+      <div class="wf-block">📂 자료실</div>
+      <div class="wf-block">💬 Q&amp;A 게시판</div>
+    </div>
+
+    <div style="font-size:12px;font-weight:700;margin-bottom:8px;">[ 현재 탭: 단지 공지사항 ]</div>
+    <div style="display:flex;flex-direction:column;gap:6px;font-size:12px;">
+      <div class="wf-block" style="text-align:left;padding:10px 14px;">
+        <strong>[필독]</strong> 집단등기 서류 제출 안내 — 제출 마감 D-30 <span style="float:right;color:#888;">2026.03.01</span>
+      </div>
+      <div class="wf-block" style="text-align:left;padding:10px 14px;">
+        [공지] 잔금대출 은행 선정 결과 안내 (○○은행 선정) <span style="float:right;color:#888;">2026.02.25</span>
+      </div>
+      <div class="wf-block" style="text-align:left;padding:10px 14px;">
+        [안내] 법무법인 더 에이치 황해 파트너 계약 완료 <span style="float:right;color:#888;">2026.02.15</span>
+      </div>
+    </div>
+    <div style="margin-top:12px;font-size:12px;border:1.5px solid #2C3E50;display:inline-block;padding:8px 20px;font-weight:700;">집단등기 신청하기 →</div>
+  </div>
 </div>
-<span style="font-size:11px;">현재 298세대 신청 완료 (35%)</span>
-</div>
-<div style="font-size:12px;font-weight:700;margin:12px 0 8px;">탭 메뉴</div>
-<div class="grid4" style="margin-bottom:12px;">
-<div class="wf-dark wf-block">단지 공지사항</div>
-<div class="wf-block">등기 진행현황</div>
-<div class="wf-block">자료실</div>
-<div class="wf-block">Q&amp;A 게시판</div>
-</div>
-<div style="font-size:12px;font-weight:700;margin-bottom:8px;">단지 공지사항 목록</div>
-<div style="display:flex; flex-direction:column; gap:6px; font-size:11.5px; text-align:left;">
-<div class="wf-block">[필독] 집단등기 서류 제출 안내 (D-30) <span>2026.03.01</span></div>
-<div class="wf-block">[공지] 잔금대출 은행 선정 결과 안내 <span>2026.02.25</span></div>
-<div class="wf-block">[안내] 법무법인 더 에이치 황해 파트너 계약 완료 <span>2026.02.15</span></div>
-</div>
-</div>
-</div>
+
 <table>
-<thead><tr><th>탭 메뉴</th><th>기능</th></tr></thead>
-<tbody>
-<tr><td><strong>단지 공지사항</strong></td><td>황해 법무법인이 해당 단지 입주예정자들에게만 보내는 중요 공지 (등기 일정, 서류 제출 등)</td></tr>
-<tr><td><strong>등기 진행현황</strong></td><td>'등기관리시스템' 페이지로 링크. 개별 세대 조회 가능</td></tr>
-<tr><td><strong>자료실</strong></td><td>필요 서류 양식(위임장 등), 사전점검 체크리스트 등 파일 다운로드</td></tr>
-<tr><td><strong>Q&amp;A 게시판</strong></td><td>해당 단지 입주민 전용 질문 게시판. 변호사 또는 AI가 답변.</td></tr>
-</tbody>
+  <thead><tr><th>탭</th><th>주요 콘텐츠</th><th>비고</th></tr></thead>
+  <tbody>
+    <tr><td><strong>📢 단지 공지사항</strong></td><td>황해가 해당 단지 전용으로 작성하는 공지 (서류 제출 일정, 등기 진행 안내 등)</td><td>어드민에서 CMS로 작성</td></tr>
+    <tr><td><strong>📋 등기 진행현황</strong></td><td>개별 세대가 본인 동·호수 입력 후 등기 진행 단계를 확인할 수 있는 조회 기능</td><td>5.7 등기관리시스템과 연결</td></tr>
+    <tr><td><strong>📂 자료실</strong></td><td>위임장 양식, 인감증명서 발급 안내, 사전점검 체크리스트 등 파일 다운로드</td><td>PDF·이미지 파일 업로드</td></tr>
+    <tr><td><strong>💬 Q&amp;A 게시판</strong></td><td>해당 단지 입주예정자 전용 질문 게시판. AI 또는 담당 변호사가 답변.</td><td>단지별 격리된 게시판</td></tr>
+  </tbody>
 </table>
-<h3 id="p4s1-5"><span class="new">v2.0</span> 등기관리시스템 (황해 버전 /register/status)</h3>
-<p>태성의 eregister.co.kr을 벤치마킹하되, 보안과 UX를 대폭 강화한 황해 버전을 기획한다.</p>
-<h4>핵심 개선 방향</h4>
-<ol>
-<li><strong>모바일 최적화</strong>: 반응형 디자인으로 스마트폰에서 모든 기능 완벽 지원</li>
-<li><strong>강화된 인증</strong>: 생년월일 대신 **휴대폰 본인인증** 또는 **카카오 간편인증** 도입</li>
-<li><strong>시각적 대시보드</strong>: 텍스트 위주가 아닌, 타임라인과 차트로 진행 상황을 한눈에 파악</li>
-</ol>
+
+<h3>5.7 등기관리시스템 — 황해 버전 <span class="new-badge">v2.0 추가</span></h3>
+<p>태성 eregister.co.kr 분석을 바탕으로, 보안·UX를 대폭 강화한 황해 버전의 등기관리시스템을 기획한다. 단지 상세 페이지의 <strong>'등기 진행현황' 탭</strong>에서 접근한다.</p>
+
+<h4>개인 세대 조회 화면</h4>
 <div class="wf">
-<div class="wf-h">황해 등기관리시스템 — 개별 세대 조회 결과</div>
-<div class="wf-b">
-<div class="wf-block wf-gray" style="text-align:left; padding:12px;">
-<strong style="font-size:14px;">101동 1203호 (홍길동님) 등기 진행 현황</strong><br/>
-<span style="font-size:11px;">최종 업데이트: 2026.03.03 15:00</span>
+  <div class="wf-h">등기 진행현황 조회 — 인증 → 결과</div>
+  <div class="wf-b">
+    <div class="grid2" style="gap:16px;margin-bottom:12px;">
+      <div>
+        <div style="font-size:12px;font-weight:700;margin-bottom:8px;">STEP 1. 본인 인증</div>
+        <div style="display:flex;flex-direction:column;gap:6px;font-size:12px;">
+          <div class="wf-block">동 입력 (예: 101동)</div>
+          <div class="wf-block">호수 입력 (예: 1203호)</div>
+          <div class="wf-dark wf-block" style="background:#fee;color:#b00;border-color:#b00;">❌ 생년월일 6자리 (태성 방식 — 보안 취약)</div>
+          <div class="wf-dark wf-block">✅ 카카오 간편인증 → (황해 방식)</div>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:12px;font-weight:700;margin-bottom:8px;">STEP 2. 조회 결과 — 타임라인</div>
+        <div style="display:flex;flex-direction:column;gap:6px;font-size:11.5px;">
+          <div class="wf-dark wf-block">✅ 서류 제출 완료 — 2026.02.20</div>
+          <div class="wf-dark wf-block">✅ 취득세 납부 완료 — 2026.02.28</div>
+          <div class="wf-block" style="background:#e67e22;color:#fff;border-color:#e67e22;">➡️ 진행중: 등기소 접수 (3~5 영업일 소요)</div>
+          <div class="wf-gray wf-block">⬜ 등기 완료</div>
+          <div class="wf-gray wf-block">⬜ 등기권리증 발송</div>
+        </div>
+      </div>
+    </div>
+    <div style="font-size:12px;font-weight:700;margin-bottom:8px;">서류 제출 현황 (보완 필요 항목 빨간색 강조)</div>
+    <div style="display:flex;flex-direction:column;gap:6px;font-size:12px;">
+      <div class="wf-block" style="text-align:left;padding:8px 14px;">✅ 주민등록등본 (제출 완료)</div>
+      <div class="wf-block" style="text-align:left;padding:8px 14px;">✅ 인감증명서 (제출 완료)</div>
+      <div class="wf-block" style="text-align:left;padding:8px 14px;border-color:#b00;color:#b00;">⚠️ 가족관계증명서 — <strong>상세 발급 필요</strong> (일반으로 제출됨. 재발급 후 제출 요망)</div>
+    </div>
+    <div style="margin-top:10px;font-size:11.5px;color:#555;">※ 서류 보완 완료 시 담당자에게 카카오 알림톡으로 자동 통보</div>
+  </div>
 </div>
-<div style="font-size:12px;font-weight:700;margin:12px 0 8px;">타임라인</div>
-<div style="display:flex; flex-direction:column; gap:8px; font-size:11.5px;">
-<div class="wf-row"><div class="wf-dark wf-block" style="width:120px;">✅ 서류 제출 완료</div><div class="wf-block wf-fill">2026.02.20 제출하신 서류 검토 완료</div></div>
-<div class="wf-row"><div class="wf-dark wf-block" style="width:120px;">✅ 취득세 납부 완료</div><div class="wf-block wf-fill">2026.02.28 위택스 납부 확인 완료</div></div>
-<div class="wf-row"><div class="wf-block" style="width:120px; background:#e67e22; color:#fff;">➡️ 등기소 접수</div><div class="wf-block wf-fill">관할 등기소에 소유권이전등기 서류 접수 진행중 (예상 3~5 영업일 소요)</div></div>
-<div class="wf-row"><div class="wf-gray wf-block" style="width:120px;">등기 완료</div><div class="wf-block wf-fill">등기소 처리 대기중</div></div>
-<div class="wf-row"><div class="wf-gray wf-block" style="width:120px;">등기권리증 발송</div><div class="wf-block wf-fill">등기 완료 후 우편 발송 예정</div></div>
+
+<h4>입예협 운영진용 관리 화면 (어드민)</h4>
+<div class="wf">
+  <div class="wf-h">입예협 어드민 대시보드</div>
+  <div class="wf-b">
+    <div class="grid4" style="margin-bottom:10px;">
+      <div class="wf-block" style="text-align:left;padding:12px;">총 세대수<br><strong style="font-size:20px;">850</strong></div>
+      <div class="wf-block" style="text-align:left;padding:12px;">신청 완료<br><strong style="font-size:20px;">298</strong></div>
+      <div class="wf-block" style="text-align:left;padding:12px;">서류 보완 필요<br><strong style="font-size:20px;color:#b00;">12</strong></div>
+      <div class="wf-block" style="text-align:left;padding:12px;">등기 완료<br><strong style="font-size:20px;color:#197;">43</strong></div>
+    </div>
+    <div class="wf-block" style="text-align:left;padding:10px 14px;margin-bottom:6px;font-size:12px;font-weight:700;">세대별 진행 현황 목록 (검색·필터 가능)</div>
+    <div style="display:flex;flex-direction:column;gap:4px;font-size:11.5px;">
+      <div class="wf-block" style="text-align:left;padding:8px 14px;display:flex;justify-content:space-between;">
+        <span>101동 1203호 — 김○○</span>
+        <span style="color:#e67e22;font-weight:700;">등기소 접수중</span>
+      </div>
+      <div class="wf-block" style="text-align:left;padding:8px 14px;display:flex;justify-content:space-between;">
+        <span>102동 501호 — 이○○</span>
+        <span style="color:#b00;font-weight:700;">⚠️ 서류 보완 필요</span>
+      </div>
+      <div class="wf-block" style="text-align:left;padding:8px 14px;display:flex;justify-content:space-between;">
+        <span>103동 702호 — 박○○</span>
+        <span style="color:#197;font-weight:700;">✅ 등기 완료</span>
+      </div>
+    </div>
+  </div>
 </div>
-<div style="font-size:12px;font-weight:700;margin:12px 0 8px;">제출 서류 목록</div>
-<ul>
-<li style="font-size:12px;">[완료] 주민등록등본</li>
-<li style="font-size:12px;">[완료] 인감증명서</li>
-<li style="font-size:12px;">[보완필요] 가족관계증명서 (상세) - <span style="color:#b00;">일반으로 제출됨. 상세로 재발급 필요.</span></li>
-</ul>
-</div>
-</div>
+</section>
+
+<!-- ============================= PART 5 ============================= -->
 <div class="part-divider">PART 5 — AI 법률 상담 시스템 상세 설계</div>
+
 <section id="p5s1">
 <h2>6. AI 법률 상담 시스템 상세 설계</h2>
 
-<h3 id="p5s1-1"><span class="new">v2.0</span> AI 상담 vs 단순 Q&amp;A 분리</h3>
+
+<h3>6.1-1 AI 상담 vs 단순 Q&A 분리 <span class="new-badge">v2.0 수정</span></h3>
 <div class="callout">
-<strong>수정 요청 반영</strong>: 모든 질문을 AI 대화로 처리하는 대신, 예측 가능한 단순 질문은 Q&amp;A 형식으로 즉시 보여주고, 복잡한 상황 설명이 필요한 경우에만 AI 대화형 상담을 진행하도록 분리한다.
+  <strong>설계 원칙</strong>: 정답이 정해진 단순 질문은 AI 대화 없이 즉시 FAQ 답변으로 처리한다. 복잡한 상황 파악이 필요한 경우에만 AI 대화형 상담을 진행한다. AI 리소스 낭비를 방지하고 사용자 경험도 빠르게 유지한다.
 </div>
 <div class="compare">
-<div class="c-col">
-<div class="c-lbl">단순 Q&amp;A (FAQ)</div>
-<ul>
-<li>"등기 비용 얼마예요?"</li>
-<li>"필요 서류 목록 알려주세요."</li>
-<li>"하자담보책임 기간은 몇 년인가요?"</li>
-<li><strong>처리 방식</strong>: 미리 작성된 답변을 즉시 노출 (아코디언 UI)</li>
-</ul>
+  <div class="c-col">
+    <div class="c-lbl">단순 Q&amp;A (FAQ — 즉시 답변)</div>
+    <ul>
+      <li>"등기 비용이 얼마나 드나요?"</li>
+      <li>"필요한 서류 목록이 뭔가요?"</li>
+      <li>"하자담보책임 기간이 몇 년인가요?"</li>
+      <li>"취득세 감면 조건이 어떻게 되나요?"</li>
+      <li>"집단등기와 개별 등기 차이가 뭔가요?"</li>
+    </ul>
+    <p style="font-size:12.5px;margin-top:8px;"><strong>처리 방식</strong>: 미리 작성된 답변을 아코디언(FAQ) UI로 즉시 노출. AI 호출 없음.</p>
+  </div>
+  <div class="c-col">
+    <div class="c-lbl">AI 대화형 상담 (사실관계 수집)</div>
+    <ul>
+      <li>"사전점검 때 누수를 발견했어요..."</li>
+      <li>"입주가 3개월 늦어진다고 합니다..."</li>
+      <li>"계약서와 다르게 자재가 바뀌었어요..."</li>
+      <li>"시공사가 보수를 계속 미루고 있어요..."</li>
+      <li>"분양권을 팔려고 하는데 가능한가요?"</li>
+    </ul>
+    <p style="font-size:12.5px;margin-top:8px;"><strong>처리 방식</strong>: AI가 카테고리 판단 후 사실관계 수집 질문 3~5개 진행 → 변호사 핸드오프.</p>
+  </div>
 </div>
-<div class="c-col">
-<div class="c-lbl">AI 대화형 상담</div>
-<ul>
-<li>"사전점검 때 누수를 발견했어요..."</li>
-<li>"입주가 3개월 늦어진다고 합니다..."</li>
-<li>"분양 계약서 내용과 다르게 시공됐어요..."</li>
-<li><strong>처리 방식</strong>: AI가 사실관계 파악을 위한 3~5개 추가 질문 진행</li>
-</ul>
-</div>
-</div>
-<h3>6.2 B2B 플로우 — 입예협 법적 쟁점 파악 AI (/opinion)</h3>
-<h4>전체 대화 플로우</h4>
-<div class="flow">
-<div class="fb">입예협 임원<br/>페이지 진입</div>
-<div class="fa">→</div>
-<div class="fb">단지 기본정보<br/>입력 (Step 1)</div>
-<div class="fa">→</div>
-<div class="fb">쟁점 유형<br/>선택 (Step 2)</div>
-<div class="fa">→</div>
-<div class="fb">AI 사실관계<br/>질문 (Step 3)</div>
-<div class="fa">→</div>
-<div class="fb dark">의견서 초안<br/>생성</div>
-<div class="fa">→</div>
-<div class="fb">변호사 검토<br/>후 발송</div>
-</div>
-<h4>Step 1 — 단지 기본정보 입력 (폼 방식)</h4>
-<table>
-<thead><tr><th>입력 항목</th><th>예시</th></tr></thead>
-<tbody>
-<tr><td>아파트 단지명</td><td>인천 송도 ○○더샵 1차</td></tr>
-<tr><td>총 세대수</td><td>850세대</td></tr>
-<tr><td>시공사명</td><td>(주)○○건설</td></tr>
-<tr><td>시행사명</td><td>(주)○○개발</td></tr>
-<tr><td>분양 계약일 (대략)</td><td>2023년 12월</td></tr>
-<tr><td>준공 예정일</td><td>2026년 5월</td></tr>
-<tr><td>작성자 (입예협 직함)</td><td>입예협 회장</td></tr>
-<tr><td>연락처</td><td>010-XXXX-XXXX</td></tr>
-</tbody>
-</table>
-<h4>Step 2 — 쟁점 유형 선택 (복수 선택 가능)</h4>
-<table>
-<thead><tr><th>쟁점 유형</th><th>설명</th></tr></thead>
-<tbody>
-<tr><td>① 변경시공 (설계 변경)</td><td>분양 당시 약속과 다른 자재·마감·구조로 시공됨</td></tr>
-<tr><td>② 공사 기간 지연</td><td>준공 예정일보다 입주가 늦어짐</td></tr>
-<tr><td>③ 분양계약 불이행</td><td>계약서에 명시된 시설·옵션이 미제공됨</td></tr>
-<tr><td>④ 하자 (사전점검 발견)</td><td>사전점검 시 다수 하자 발견, 시공사가 보수 거부·지연</td></tr>
-<tr><td>⑤ 공용시설 미설치</td><td>약속한 커뮤니티시설·편의시설 미설치</td></tr>
-<tr><td>⑥ 기타</td><td>직접 입력</td></tr>
-</tbody>
-</table>
-<h4>Step 3 — AI 대화를 통한 사실관계 수집</h4>
-<p>선택된 쟁점 유형에 따라 AI가 다른 질문 세트를 진행한다. 아래는 <strong>① 변경시공</strong> 선택 시 대화 예시다.</p>
-<div class="chat-box">
-<div class="chat-header">더 에이치 AI — 입예협 법적 쟁점 파악 상담 (변경시공)</div>
-<div class="chat-body">
-<div class="msg ai">
-<div class="msg-label">더 에이치 AI</div>
-<div class="bubble">안녕하세요, 인천 송도 ○○더샵 입예협 회장님. 변경시공 관련 쟁점을 파악하겠습니다.<br/><br/>
-      먼저 변경시공 사실을 어떻게 인지하셨나요? (예: 사전점검 시 직접 확인, 다른 단지와 비교, 공사 진행 중 목격 등)</div>
-</div>
-<div class="msg user">
-<div class="msg-label">입예협 회장</div>
-<div class="bubble">사전점검 때 확인했어요. 분양 계약서에는 시스템 에어컨이라고 했는데 일반 벽걸이 에어컨으로 바뀌어 있었고, 외벽 마감재도 카탈로그랑 다르게 저가 자재로 바뀐 것 같아요.</div>
-</div>
-<div class="msg ai">
-<div class="msg-label">더 에이치 AI</div>
-<div class="bubble">중요한 두 가지 쟁점이 확인됩니다. 확인을 위해 몇 가지 더 질문드리겠습니다.<br/><br/>
-      1. 분양 계약서 또는 입주자 모집공고문에 에어컨 관련 명시가 되어 있나요? 있다면 어떻게 표현되어 있는지 알려주세요.</div>
-</div>
-<div class="msg user">
-<div class="msg-label">입예협 회장</div>
-<div class="bubble">모집공고문에 "전 세대 시스템 에어컨 기본 설치"라고 명확히 적혀 있어요.</div>
-</div>
-<div class="msg ai">
-<div class="msg-label">더 에이치 AI</div>
-<div class="bubble">네, 확인됩니다. 입주자 모집공고문은 분양계약의 일부로 법적 구속력이 있습니다.<br/><br/>
-      2. 시공사 측에서 변경에 대해 어떤 설명이 있었나요? 사전에 동의를 구했거나 공지한 적이 있나요?</div>
-</div>
-<div class="msg user">
-<div class="msg-label">입예협 회장</div>
-<div class="bubble">아무런 공지도 없었고 나중에 물어봤더니 "자재 수급 문제"라고만 했어요.</div>
-</div>
-<div class="msg ai">
-<div class="msg-label">더 에이치 AI</div>
-<div class="bubble">수분양자의 동의 없이 사전 고지만으로 설계 변경을 한 것은 분양계약 위반에 해당할 수 있습니다.<br/><br/>
-      3. 외벽 마감재 변경 관련해서도, 계약서 또는 공고문에 마감재 사양이 명시되어 있나요? 바뀐 자재와 원래 자재의 구체적 차이를 아시나요?</div>
-</div>
-<div class="msg user">
-<div class="msg-label">입예협 회장</div>
-<div class="bubble">공고문에 "고급 대리석 패널 마감"이라고 했는데 현장에서는 일반 페인트 마감으로 바뀌어 있어요. 입예협 내에서 사진 다 찍어뒀어요.</div>
-</div>
-<div class="msg ai">
-<div class="msg-label">더 에이치 AI</div>
-<div class="bubble">수집한 사실관계를 정리합니다.<br/><br/>
-<strong>쟁점 요약</strong><br/>
-      ■ 쟁점 1. 시스템 에어컨 → 일반 에어컨 변경<br/>
-      · 근거: 입주자 모집공고문 "전 세대 시스템 에어컨 기본 설치" 명시<br/>
-      · 시공사 사전 동의 요청 없음, "자재 수급" 사후 해명만 있음<br/><br/>
-      ■ 쟁점 2. 외벽 마감재 대리석 패널 → 일반 페인트 변경<br/>
-      · 근거: 공고문 "고급 대리석 패널 마감" 명시<br/>
-      · 현장 사진 증거 확보됨<br/><br/>
-      두 쟁점 모두 <strong>분양계약 불이행 및 변경시공에 따른 손해배상 청구 가능성</strong>이 있습니다. 이 내용으로 담당 변호사가 법적 의견서를 작성해 드리겠습니다.<br/><br/>
-      의견서 발송을 위한 연락처(이메일)를 남겨주시겠어요?</div>
-</div>
-<div style="align-self:flex-start;margin-top:4px;">
-<div style="background:#fff;border:1.5px solid #111;border-radius:8px;padding:10px 16px;font-size:13px;max-width:340px;">
-<strong>📄 변호사 검토 의견서 요청</strong><br/>
-<span style="font-size:12px;color:#555;">위 사실관계를 바탕으로 담당 변호사가 공식 법적 의견서를 작성합니다. 통상 2~3 영업일 소요.</span><br/>
-<div style="background:#111;color:#fff;padding:8px 14px;margin-top:8px;border-radius:6px;font-size:12.5px;font-weight:700;text-align:center;">의견서 요청하기 →</div>
-</div>
-</div>
-</div>
-</div>
-<h4>AI가 수집하는 쟁점별 핵심 질문 세트</h4>
-<table>
-<thead><tr><th>쟁점 유형</th><th>AI 핵심 질문 (3~5개)</th></tr></thead>
-<tbody>
-<tr>
-<td><strong>변경시공</strong></td>
-<td>
-        ① 변경 사실을 어떻게 인지했나?<br/>
-        ② 계약서/공고문에 원래 사양이 명시되어 있나?<br/>
-        ③ 시공사의 사전 고지·동의 여부?<br/>
-        ④ 변경된 자재·사양의 구체적 차이와 증거(사진)?<br/>
-        ⑤ 세대수 중 몇 세대에 해당하는 문제인가?
-      </td>
-</tr>
-<tr>
-<td><strong>공사 지연</strong></td>
-<td>
-        ① 계약서 상 입주 예정일과 현재 통보된 입주일?<br/>
-        ② 지연 공지를 언제, 어떻게 받았나?<br/>
-        ③ 중도금·잔금 납부 일정에 영향이 생겼나?<br/>
-        ④ 기존 거주지 퇴거·이사 비용 등 추가 손해 발생 여부?
-      </td>
-</tr>
-<tr>
-<td><strong>하자 (집단)</strong></td>
-<td>
-        ① 하자 유형은 무엇인가? (균열/누수/마감/설비 등)<br/>
-        ② 세대수 중 몇 세대에서 동일 하자가 발생했나?<br/>
-        ③ 시공사에 보수 요청을 했나? 답변은?<br/>
-        ④ 사용승인일이 언제인가? (담보책임 기간 산정)<br/>
-        ⑤ 사진·서면 증거 확보 여부?
-      </td>
-</tr>
-<tr>
-<td><strong>공용시설 미설치</strong></td>
-<td>
-        ① 계약서/공고문에 명시된 시설은 무엇인가?<br/>
-        ② 현재 실제로 설치되지 않은 것은?<br/>
-        ③ 분양사가 어떤 입장인가?
-      </td>
-</tr>
-</tbody>
-</table>
-<h3>6.3 B2C 플로우 — 개인 사건화 AI (사실관계 수집)</h3>
+
+<h3>6.1 이중 채널 구조 — 입예협(B2B) vs 개인(B2C)</h3>
 <div class="callout">
-<strong>B2C AI의 목적 — 사건 선별과 수임 효율화</strong>
-  개인 입주예정자가 올리는 질문은 크게 두 종류다. ① "이 정도면 소송 가능한가요?" (사건화 가능성 궁금) ② "법이 어떻게 되어 있나요?" (정보 궁금). AI는 두 경우 모두 사실관계를 먼저 파악하고, 사건화 가능성이 있는 경우 <strong>변호사에게 미리 정리된 사실관계를 자동 전달</strong>하여 변호사가 빠르게 수임 여부를 판단할 수 있게 한다. 이 과정에서 착수비를 낮춰 수임 문턱을 낮추는 것이 전략의 핵심이다.
+  <strong>AI 상담의 핵심 원칙</strong>
+  황해 집단등기팀 AI 상담은 두 가지 목적이 다르다. <strong>입예협(B2B)</strong>에게는 "우리 단지 전체의 법적 쟁점을 분석해 공식 의견서를 받는 것"이 목표다. <strong>개인 입주예정자(B2C)</strong>에게는 "내 개인 문제가 사건화될 수 있는지 판단하고, 저렴한 비용으로 변호사에게 연결받는 것"이 목표다. AI는 두 경우 모두 직접 법적 의견을 내는 것이 아니라 <strong>사실관계를 체계적으로 수집</strong>하는 역할을 한다.
 </div>
-<h4>전체 대화 플로우</h4>
-<div class="flow">
-<div class="fb">사용자 첫 질문<br/>입력</div>
-<div class="fa">→</div>
-<div class="fb">AI 상황 파악<br/>질문 시작</div>
-<div class="fa">→</div>
-<div class="fb dark">사실관계<br/>3~5 질문</div>
-<div class="fa">→</div>
-<div class="fb">사건화 가능성<br/>1차 판단</div>
-<div class="fa">→</div>
-<div class="fb">사실관계<br/>요약 생성</div>
-<div class="fa">→</div>
-<div class="fb dark">변호사<br/>핸드오프</div>
-</div>
-<h4>대화 예시 1 — 하자 (사건화 가능성 높음)</h4>
-<div class="chat-box">
-<div class="chat-header">더 에이치 AI — 개인 법률 상담</div>
-<div class="chat-body">
-<div class="msg user">
-<div class="msg-label">입주예정자</div>
-<div class="bubble">사전점검 때 화장실에서 누수 발견했는데 시공사가 입주하고 나서 보수한다고 하는데 입주 전에 고쳐야 하지 않나요?</div>
-</div>
-<div class="msg ai">
-<div class="msg-label">더 에이치 AI</div>
-<div class="bubble">안녕하세요! 사전점검 하자 관련 상황이시군요. 정확히 파악하기 위해 몇 가지 여쭤볼게요.<br/><br/>
-      1. 사전점검은 언제 진행하셨나요? 그리고 누수 위치가 천장인지 벽인지 바닥인지 알 수 있을까요?</div>
-</div>
-<div class="msg user">
-<div class="msg-label">입주예정자</div>
-<div class="bubble">2주 전에 했고요, 천장에서 물이 떨어졌어요. 사진 찍어뒀어요.</div>
-</div>
-<div class="msg ai">
-<div class="msg-label">더 에이치 AI</div>
-<div class="bubble">사진 증거가 있으시군요, 중요합니다.<br/><br/>
-      2. 시공사에서 "입주 후 보수"라고 한 것이 문서(문자, 이메일)로 되어 있나요, 구두(전화, 현장 말)로만 들으셨나요?</div>
-</div>
-<div class="msg user">
-<div class="msg-label">입주예정자</div>
-<div class="bubble">현장에서 직원이 구두로만 얘기했어요. 문서는 없어요.</div>
-</div>
-<div class="msg ai">
-<div class="msg-label">더 에이치 AI</div>
-<div class="bubble">네, 구두 약속은 법적으로 증명이 어려울 수 있어서 지금이라도 문서화가 중요합니다.<br/><br/>
-      3. 혹시 같은 문제(천장 누수)가 같은 층 이웃 세대에서도 발생한 것을 확인하셨나요?</div>
-</div>
-<div class="msg user">
-<div class="msg-label">입주예정자</div>
-<div class="bubble">카페 보니까 저 포함 8세대가 비슷한 문제 있다고 글 올렸더라고요.</div>
-</div>
-<div class="msg ai">
-<div class="msg-label">더 에이치 AI</div>
-<div class="bubble">안내드립니다. 천장 누수는 공동주택관리법상 <strong>하자담보책임</strong>에 해당하며, 누수 관련 공사(방수공사)는 사용승인일로부터 <strong>5년간 시공사가 무상 보수 의무</strong>를 집니다.<br/><br/>
-      ■ <strong>입주 전 보수 요구권</strong>: 하자가 있는 상태에서 입주를 거부하고 보수 완료를 조건으로 잔금 지급을 보류할 수 있습니다(동시이행 항변권).<br/>
-      ■ <strong>집단 가능성</strong>: 8세대 이상이면 집단으로 하자보수 이행청구 또는 손해배상 청구를 고려해 볼 수 있습니다.<br/><br/>
-      현재 상황에서 취할 수 있는 구체적인 법적 조치를 담당 변호사와 상담해 보시겠어요? 방금 말씀해 주신 내용을 정리해서 변호사에게 먼저 전달해 드릴 수 있습니다.</div>
-</div>
-<div style="align-self:flex-start;margin-top:4px;">
-<div style="background:#fff;border:1.5px solid #111;border-radius:8px;padding:12px 16px;font-size:13px;max-width:360px;">
-<strong>📋 변호사 상담 신청</strong><br/>
-<span style="font-size:12px;color:#555;">AI가 파악한 사실관계를 담당 변호사에게 전달합니다. 변호사가 사전에 내용을 파악하고 상담하기 때문에 <strong>상담 시간이 단축되고 착수비도 낮아집니다.</strong></span><br/>
-<div style="background:#111;color:#fff;padding:8px 14px;margin-top:8px;border-radius:6px;font-size:12.5px;font-weight:700;text-align:center;">변호사 연결하기 →</div>
-<div style="font-size:11px;color:#888;margin-top:6px;text-align:center;">연락처만 남기시면 담당자가 연락드립니다</div>
-</div>
-</div>
-</div>
-</div>
-<h4>대화 예시 2 — 입주 지연 (사건화 가능성 중간)</h4>
-<div class="chat-box">
-<div class="chat-header">더 에이치 AI — 개인 법률 상담</div>
-<div class="chat-body">
-<div class="msg user">
-<div class="msg-label">입주예정자</div>
-<div class="bubble">계약서에 2026년 3월 입주라고 했는데 갑자기 6월로 3개월 미뤄졌어요. 손해배상 받을 수 있나요?</div>
-</div>
-<div class="msg ai">
-<div class="msg-label">더 에이치 AI</div>
-<div class="bubble">입주 지연이 발생하셨군요. 손해배상 가능성을 파악하기 위해 몇 가지 확인할게요.<br/><br/>
-      1. 계약서에 명시된 입주 예정일이 정확히 언제인가요? "2026년 3월"이 확정일인가요, 아니면 "예정"으로 표기되어 있나요?</div>
-</div>
-<div class="msg user">
-<div class="msg-label">입주예정자</div>
-<div class="bubble">"2026년 3월 말"이라고 되어 있어요. 분양 때 강조했거든요.</div>
-</div>
-<div class="msg ai">
-<div class="msg-label">더 에이치 AI</div>
-<div class="bubble">계약서에 날짜가 명시되어 있다면 중요합니다.<br/><br/>
-      2. 3개월 지연으로 인해 실질적인 손해가 발생하셨나요? 예를 들어, 기존 거주지 계약이 이미 종료되어 단기 임대를 구해야 했거나, 이사비용이 이중으로 발생했거나 하는 상황인가요?</div>
-</div>
-<div class="msg user">
-<div class="msg-label">입주예정자</div>
-<div class="bubble">네, 지금 살던 집 3월에 내놓고 나왔는데 6월까지 어디서 살아야 하나 막막해요. 임시로 친척집에 있어요.</div>
-</div>
-<div class="msg ai">
-<div class="msg-label">더 에이치 AI</div>
-<div class="bubble">안내드립니다.<br/><br/>
-      주택공급에 관한 규칙 및 분양계약 일반 조항에 따르면, 입주 지연 시 시공사·분양사는 <strong>지연 기간에 대한 지체배상금</strong>을 지급해야 합니다. 통상 분양대금의 연 5~10% 수준으로 산정됩니다.<br/><br/>
-      다만, <strong>실질적 손해 입증(임시 거주비용 영수증, 이중 이사비 증명 등)</strong>이 있으면 추가 손해배상도 가능합니다.<br/><br/>
-      친척집에 계신다면 직접적인 비용 손해 증명이 어려울 수 있어 지체배상금 청구 방식으로 접근하는 것이 현실적입니다. 같은 단지에서 지연 피해를 본 세대가 여럿이라면 집단으로 청구하는 것이 더 효과적입니다.<br/><br/>
-      단지 입예협 카페에서 같은 상황의 세대가 얼마나 되는지 확인해 보셨나요?</div>
-</div>
-<div class="msg user">
-<div class="msg-label">입주예정자</div>
-<div class="bubble">카페에 글이 꽤 많이 올라오고 있어요.</div>
-</div>
-<div class="msg ai">
-<div class="msg-label">더 에이치 AI</div>
-<div class="bubble">그렇다면 집단 청구로 진행하는 것이 개인보다 훨씬 유리합니다. 담당 변호사가 지체배상금 규모를 계산하고 집단 청구 방법을 안내해 드릴 수 있습니다.<br/><br/>
-      연락처를 남겨주시면 담당자가 1~2 영업일 내 연락드리겠습니다.</div>
-</div>
-<div style="align-self:flex-start;margin-top:4px;">
-<div style="background:#fff;border:1.5px solid #111;border-radius:8px;padding:12px 16px;font-size:13px;max-width:360px;">
-<strong>📋 집단 청구 참여 신청</strong><br/>
-<span style="font-size:12px;color:#555;">같은 단지 피해 세대를 모아 집단으로 진행 시 개인 비용이 크게 절감됩니다.</span><br/>
-<div style="background:#111;color:#fff;padding:8px 14px;margin-top:8px;border-radius:6px;font-size:12.5px;font-weight:700;text-align:center;">참여 신청하기 →</div>
-</div>
-</div>
-</div>
-</div>
-<h4>B2C AI 질문 트리 — 카테고리별 핵심 질문</h4>
+
 <table>
-<thead><tr><th>카테고리</th><th>AI 핵심 질문 (3~4개)</th><th>사건화 판단 기준</th></tr></thead>
-<tbody>
-<tr>
-<td><strong>하자</strong></td>
-<td>① 하자 유형(균열/누수/마감/설비)?<br/>② 사용승인일은? (담보책임 기간)<br/>③ 시공사에 보수 요청 및 거부 여부?<br/>④ 몇 세대가 같은 문제?</td>
-<td>사용승인 후 담보기간 내 + 시공사 보수 거부/지연 → 높음</td>
-</tr>
-<tr>
-<td><strong>입주 지연</strong></td>
-<td>① 계약서 입주 예정일?<br/>② 지연 통보 내용과 시점?<br/>③ 실질 손해(이중 이사비, 임시 거주비)?<br/>④ 같은 단지 피해 세대 수?</td>
-<td>확정 입주일 명시 + 실질 손해 입증 가능 → 높음</td>
-</tr>
-<tr>
-<td><strong>변경시공 개인</strong></td>
-<td>① 변경된 것이 계약서/공고문에 명시됐나?<br/>② 사전 동의 받았나?<br/>③ 구체적 금전 피해(시세 차이)?</td>
-<td>공고문 명시 + 무동의 변경 → 높음</td>
-</tr>
-<tr>
-<td><strong>분양권 전매</strong></td>
-<td>① 단지 소재지(투기과열/조정/일반)?<br/>② 분양 계약일은?<br/>③ 전매 목적(매도/증여)?</td>
-<td>전매 가능 여부 정보 제공 → 세무사 연결도 권장</td>
-</tr>
-<tr>
-<td><strong>집단등기 관련 개인 문의</strong></td>
-<td>① 단지명(입예협 관리 단지 여부)?<br/>② 집단등기 참여 여부?<br/>③ 개별 등기 vs 집단 등기 비용 비교 원함?</td>
-<td>집단등기 신청 전환 CTA로 연결</td>
-</tr>
-</tbody>
+  <thead>
+    <tr><th>구분</th><th>B2B (입예협)</th><th>B2C (개인)</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>접근 경로</td><td>/opinion (입예협 전용 페이지)</td><td>/ai-consult 또는 메인 챗봇</td></tr>
+    <tr><td>AI 역할</td><td>단지 전체의 법적 쟁점 파악을 위한 구조화된 질문 → 법적 쟁점 분석 의견서 초안 생성</td><td>개인의 법적 고민에서 사건화 가능성 파악을 위한 사실관계 수집 → 사건 수임 연결</td></tr>
+    <tr><td>AI 결과물</td><td>법적 쟁점 분석 의견서 초안 (변호사 최종 검토 후 발송)</td><td>사실관계 요약서 (변호사에게 자동 전달)</td></tr>
+    <tr><td>변호사 개입</td><td>의견서 초안 검토 → 수정 → 입예협에 공식 발송</td><td>사실관계 요약 검토 → 수임 여부 판단 → 착수비 책정</td></tr>
+    <tr><td>수익 전환</td><td>집단등기 계약 + 집단 하자소송 수임</td><td>개인 사건 수임 (염가 착수비)</td></tr>
+  </tbody>
 </table>
 
-<h3 id="p5s1-4"><span class="new">v2.0</span> AI → 변호사 핸드오프 설계 (카카오 알림톡)</h3>
-<div class="callout">
-<strong>수정 요청 반영</strong>: '변호사 연결하기' 버튼을 제거하고, 사실관계 수집 완료 후 카카오 알림톡으로 결과를 통보하는 플로우로 변경.
-</div>
-<h4>변경된 대화 종료 플로우</h4>
+<h3>6.2 B2B 플로우 — 입예협 법적 쟁점 파악 AI (/opinion)</h3>
+
+<h4>전체 대화 플로우</h4>
 <div class="flow">
-<div class="fb">AI 사실관계<br/>질문 3~5회</div>
-<div class="fa">→</div>
-<div class="fb">사실관계<br/>요약 생성</div>
-<div class="fa">→</div>
-<div class="fb dark">"사실관계 수집 완료"<br/>메시지 표시</div>
-<div class="fa">→</div>
-<div class="fb">연락처 수집</div>
-<div class="fa">→</div>
-<div class="fb">변호사 검토 후<br/>카카오 알림톡 발송</div>
+  <div class="fb">입예협 임원<br>페이지 진입</div>
+  <div class="fa">→</div>
+  <div class="fb">단지 기본정보<br>입력 (Step 1)</div>
+  <div class="fa">→</div>
+  <div class="fb">쟁점 유형<br>선택 (Step 2)</div>
+  <div class="fa">→</div>
+  <div class="fb">AI 사실관계<br>질문 (Step 3)</div>
+  <div class="fa">→</div>
+  <div class="fb dark">의견서 초안<br>생성</div>
+  <div class="fa">→</div>
+  <div class="fb">변호사 검토<br>후 발송</div>
 </div>
-<h4>AI 최종 안내 메시지 예시</h4>
-<div class="chat-box">
-<div class="chat-header">대화 종료 시점</div>
-<div class="chat-body">
-<div class="msg ai">
-<div class="msg-label">더 에이치 AI</div>
-<div class="bubble">네, 말씀해주신 내용을 모두 종합하여 사실관계 수집을 완료했습니다.</div>
-</div>
-<div class="final-msg">
-<strong>✅ 사실관계 수집 완료</strong><br/>
-<span style="font-size:12px;">담당 변호사가 1~2 영업일 내 검토 후, 사건화 가능 여부와 진행 방향을 <strong>카카오 알림톡</strong>으로 보내드립니다.</span>
-</div>
-<div class="msg ai">
-<div class="msg-label">더 에이치 AI</div>
-<div class="bubble">알림톡을 받으실 연락처를 남겨주시겠어요?</div>
-</div>
-</div>
-</div>
-<h3>6.5 시스템 프롬프트 설계</h3>
+
+<h4>Step 1 — 단지 기본정보 입력 (폼 방식)</h4>
 <table>
-<thead><tr><th>항목</th><th>B2B (입예협)</th><th>B2C (개인)</th></tr></thead>
-<tbody>
-<tr>
-<td>역할 정의</td>
-<td>법무법인 더 에이치 황해 입예협 법적 쟁점 파악 AI. 입예협 임원으로부터 단지 전체의 법적 쟁점에 대한 사실관계를 체계적으로 수집하는 역할</td>
-<td>법무법인 더 에이치 황해 입주예정자 법률 안내 AI. 개인 수분양자의 법적 고민에서 사실관계를 파악하고 사건화 가능성을 1차 판단하는 역할</td>
-</tr>
-<tr>
-<td>답변 금지</td>
-<td>"이 경우 법원에서 승소합니다" 같은 결론 금지. "법적 의견서에서 이 점을 중점적으로 검토합니다"로 대체</td>
-<td>"소송하시면 됩니다" 같은 직접 의견 금지. "이 쟁점은 담당 변호사가 검토해 드립니다"로 대체</td>
-</tr>
-<tr>
-<td>사실관계 수집 원칙</td>
-<td>쟁점 유형별 필수 질문 5개 이내. 질문은 한 번에 1개만. 답변 후 다음 질문</td>
-<td>카테고리 판단 후 해당 질문 트리로 진입. 3~5개 질문 후 요약 정리</td>
-</tr>
-<tr>
-<td>변호사 연결 트리거</td>
-<td>사실관계 수집 완료 시 항상 의견서 요청 CTA 노출</td>
-<td>"계약해제", "소송", "보상", "손해배상", "형사" 키워드 + 3개 이상 사실관계 수집 완료 시 변호사 연결 CTA 노출</td>
-</tr>
-<tr>
-<td>면책 문구</td>
-<td>모든 요약서 상단: "이 내용은 사실관계 파악을 위한 참고자료이며, 법적 효력을 가진 의견이 아닙니다"</td>
-<td>모든 답변 말미: "위 내용은 일반적 법률 정보이며 귀하의 구체적 상황에 대한 법률 자문이 아닙니다"</td>
-</tr>
-<tr>
-<td>단지 맞춤화</td>
-<td>입력된 단지명이 황해 담당 단지 DB에 있으면 담당 변호사 정보 자동 표시</td>
-<td>단지명 언급 시 황해 담당 여부 확인 → 담당 단지면 "우리 담당 단지입니다" + 담당 변호사 소개</td>
-</tr>
-</tbody>
+  <thead><tr><th>입력 항목</th><th>예시</th></tr></thead>
+  <tbody>
+    <tr><td>아파트 단지명</td><td>인천 송도 ○○더샵 1차</td></tr>
+    <tr><td>총 세대수</td><td>850세대</td></tr>
+    <tr><td>시공사명</td><td>(주)○○건설</td></tr>
+    <tr><td>시행사명</td><td>(주)○○개발</td></tr>
+    <tr><td>분양 계약일 (대략)</td><td>2023년 12월</td></tr>
+    <tr><td>준공 예정일</td><td>2026년 5월</td></tr>
+    <tr><td>작성자 (입예협 직함)</td><td>입예협 회장</td></tr>
+    <tr><td>연락처</td><td>010-XXXX-XXXX</td></tr>
+  </tbody>
 </table>
-<h3>6.6 기술 아키텍처</h3>
+
+<h4>Step 2 — 쟁점 유형 선택 (복수 선택 가능)</h4>
+<table>
+  <thead><tr><th>쟁점 유형</th><th>설명</th></tr></thead>
+  <tbody>
+    <tr><td>① 변경시공 (설계 변경)</td><td>분양 당시 약속과 다른 자재·마감·구조로 시공됨</td></tr>
+    <tr><td>② 공사 기간 지연</td><td>준공 예정일보다 입주가 늦어짐</td></tr>
+    <tr><td>③ 분양계약 불이행</td><td>계약서에 명시된 시설·옵션이 미제공됨</td></tr>
+    <tr><td>④ 하자 (사전점검 발견)</td><td>사전점검 시 다수 하자 발견, 시공사가 보수 거부·지연</td></tr>
+    <tr><td>⑤ 공용시설 미설치</td><td>약속한 커뮤니티시설·편의시설 미설치</td></tr>
+    <tr><td>⑥ 기타</td><td>직접 입력</td></tr>
+  </tbody>
+</table>
+
+<h4>Step 3 — AI 대화를 통한 사실관계 수집</h4>
+<p>선택된 쟁점 유형에 따라 AI가 다른 질문 세트를 진행한다. 아래는 <strong>① 변경시공</strong> 선택 시 대화 예시다.</p>
+
+<div class="chat-box">
+  <div class="chat-header">더 에이치 AI — 입예협 법적 쟁점 파악 상담 (변경시공)</div>
+  <div class="chat-body">
+    <div class="msg ai">
+      <div class="msg-label">더 에이치 AI</div>
+      <div class="bubble">안녕하세요, 인천 송도 ○○더샵 입예협 회장님. 변경시공 관련 쟁점을 파악하겠습니다.<br><br>
+      먼저 변경시공 사실을 어떻게 인지하셨나요? (예: 사전점검 시 직접 확인, 다른 단지와 비교, 공사 진행 중 목격 등)</div>
+    </div>
+    <div class="msg user">
+      <div class="msg-label">입예협 회장</div>
+      <div class="bubble">사전점검 때 확인했어요. 분양 계약서에는 시스템 에어컨이라고 했는데 일반 벽걸이 에어컨으로 바뀌어 있었고, 외벽 마감재도 카탈로그랑 다르게 저가 자재로 바뀐 것 같아요.</div>
+    </div>
+    <div class="msg ai">
+      <div class="msg-label">더 에이치 AI</div>
+      <div class="bubble">중요한 두 가지 쟁점이 확인됩니다. 확인을 위해 몇 가지 더 질문드리겠습니다.<br><br>
+      1. 분양 계약서 또는 입주자 모집공고문에 에어컨 관련 명시가 되어 있나요? 있다면 어떻게 표현되어 있는지 알려주세요.</div>
+    </div>
+    <div class="msg user">
+      <div class="msg-label">입예협 회장</div>
+      <div class="bubble">모집공고문에 "전 세대 시스템 에어컨 기본 설치"라고 명확히 적혀 있어요.</div>
+    </div>
+    <div class="msg ai">
+      <div class="msg-label">더 에이치 AI</div>
+      <div class="bubble">네, 확인됩니다. 입주자 모집공고문은 분양계약의 일부로 법적 구속력이 있습니다.<br><br>
+      2. 시공사 측에서 변경에 대해 어떤 설명이 있었나요? 사전에 동의를 구했거나 공지한 적이 있나요?</div>
+    </div>
+    <div class="msg user">
+      <div class="msg-label">입예협 회장</div>
+      <div class="bubble">아무런 공지도 없었고 나중에 물어봤더니 "자재 수급 문제"라고만 했어요.</div>
+    </div>
+    <div class="msg ai">
+      <div class="msg-label">더 에이치 AI</div>
+      <div class="bubble">수분양자의 동의 없이 사전 고지만으로 설계 변경을 한 것은 분양계약 위반에 해당할 수 있습니다.<br><br>
+      3. 외벽 마감재 변경 관련해서도, 계약서 또는 공고문에 마감재 사양이 명시되어 있나요? 바뀐 자재와 원래 자재의 구체적 차이를 아시나요?</div>
+    </div>
+    <div class="msg user">
+      <div class="msg-label">입예협 회장</div>
+      <div class="bubble">공고문에 "고급 대리석 패널 마감"이라고 했는데 현장에서는 일반 페인트 마감으로 바뀌어 있어요. 입예협 내에서 사진 다 찍어뒀어요.</div>
+    </div>
+    <div class="msg ai">
+      <div class="msg-label">더 에이치 AI</div>
+      <div class="bubble">수집한 사실관계를 정리합니다.<br><br>
+      <strong>쟁점 요약</strong><br>
+      ■ 쟁점 1. 시스템 에어컨 → 일반 에어컨 변경<br>
+      · 근거: 입주자 모집공고문 "전 세대 시스템 에어컨 기본 설치" 명시<br>
+      · 시공사 사전 동의 요청 없음, "자재 수급" 사후 해명만 있음<br><br>
+      ■ 쟁점 2. 외벽 마감재 대리석 패널 → 일반 페인트 변경<br>
+      · 근거: 공고문 "고급 대리석 패널 마감" 명시<br>
+      · 현장 사진 증거 확보됨<br><br>
+      두 쟁점 모두 <strong>분양계약 불이행 및 변경시공에 따른 손해배상 청구 가능성</strong>이 있습니다. 이 내용으로 담당 변호사가 법적 의견서를 작성해 드리겠습니다.<br><br>
+      의견서 발송을 위한 연락처(이메일)를 남겨주시겠어요?</div>
+    </div>
+    <div style="align-self:flex-start;margin-top:4px;">
+      <div style="background:#fff;border:1.5px solid #111;border-radius:8px;padding:10px 16px;font-size:13px;max-width:340px;">
+        <strong>📄 변호사 검토 의견서 요청</strong><br>
+        <span style="font-size:12px;color:#555;">위 사실관계를 바탕으로 담당 변호사가 공식 법적 의견서를 작성합니다. 통상 2~3 영업일 소요.</span><br>
+        <div style="background:#111;color:#fff;padding:8px 14px;margin-top:8px;border-radius:6px;font-size:12.5px;font-weight:700;text-align:center;">의견서 요청하기 →</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h4>AI가 수집하는 쟁점별 핵심 질문 세트</h4>
+<table>
+  <thead><tr><th>쟁점 유형</th><th>AI 핵심 질문 (3~5개)</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><strong>변경시공</strong></td>
+      <td>
+        ① 변경 사실을 어떻게 인지했나?<br>
+        ② 계약서/공고문에 원래 사양이 명시되어 있나?<br>
+        ③ 시공사의 사전 고지·동의 여부?<br>
+        ④ 변경된 자재·사양의 구체적 차이와 증거(사진)?<br>
+        ⑤ 세대수 중 몇 세대에 해당하는 문제인가?
+      </td>
+    </tr>
+    <tr>
+      <td><strong>공사 지연</strong></td>
+      <td>
+        ① 계약서 상 입주 예정일과 현재 통보된 입주일?<br>
+        ② 지연 공지를 언제, 어떻게 받았나?<br>
+        ③ 중도금·잔금 납부 일정에 영향이 생겼나?<br>
+        ④ 기존 거주지 퇴거·이사 비용 등 추가 손해 발생 여부?
+      </td>
+    </tr>
+    <tr>
+      <td><strong>하자 (집단)</strong></td>
+      <td>
+        ① 하자 유형은 무엇인가? (균열/누수/마감/설비 등)<br>
+        ② 세대수 중 몇 세대에서 동일 하자가 발생했나?<br>
+        ③ 시공사에 보수 요청을 했나? 답변은?<br>
+        ④ 사용승인일이 언제인가? (담보책임 기간 산정)<br>
+        ⑤ 사진·서면 증거 확보 여부?
+      </td>
+    </tr>
+    <tr>
+      <td><strong>공용시설 미설치</strong></td>
+      <td>
+        ① 계약서/공고문에 명시된 시설은 무엇인가?<br>
+        ② 현재 실제로 설치되지 않은 것은?<br>
+        ③ 분양사가 어떤 입장인가?
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>6.3 B2C 플로우 — 개인 사건화 AI (사실관계 수집)</h3>
+
+<div class="callout">
+  <strong>B2C AI의 목적 — 사건 선별과 수임 효율화</strong>
+  개인 입주예정자가 올리는 질문은 크게 두 종류다. ① "이 정도면 소송 가능한가요?" (사건화 가능성 궁금) ② "법이 어떻게 되어 있나요?" (정보 궁금). AI는 두 경우 모두 사실관계를 먼저 파악하고, 사건화 가능성이 있는 경우 <strong>변호사에게 미리 정리된 사실관계를 자동 전달</strong>하여 변호사가 빠르게 수임 여부를 판단할 수 있게 한다. 이 과정에서 착수비를 낮춰 수임 문턱을 낮추는 것이 전략의 핵심이다.
+</div>
+
+<h4>전체 대화 플로우</h4>
 <div class="flow">
-<div class="fb gray">사용자 브라우저<br/>Next.js 프론트</div>
-<div class="fa">→</div>
-<div class="fb">/api/chat<br/>API Route</div>
-<div class="fa">→</div>
-<div class="fb dark">OpenAI<br/>GPT-4o API</div>
-<div class="fa">→</div>
-<div class="fb">응답 스트리밍<br/>→ UI 렌더</div>
+  <div class="fb">사용자 첫 질문<br>입력</div>
+  <div class="fa">→</div>
+  <div class="fb">AI 상황 파악<br>질문 시작</div>
+  <div class="fa">→</div>
+  <div class="fb dark">사실관계<br>3~5 질문</div>
+  <div class="fa">→</div>
+  <div class="fb">사건화 가능성<br>1차 판단</div>
+  <div class="fa">→</div>
+  <div class="fb">사실관계<br>요약 생성</div>
+  <div class="fa">→</div>
+  <div class="fb dark">변호사<br>핸드오프</div>
+</div>
+
+<h4>대화 예시 1 — 하자 (사건화 가능성 높음)</h4>
+<div class="chat-box">
+  <div class="chat-header">더 에이치 AI — 개인 법률 상담</div>
+  <div class="chat-body">
+    <div class="msg user">
+      <div class="msg-label">입주예정자</div>
+      <div class="bubble">사전점검 때 화장실에서 누수 발견했는데 시공사가 입주하고 나서 보수한다고 하는데 입주 전에 고쳐야 하지 않나요?</div>
+    </div>
+    <div class="msg ai">
+      <div class="msg-label">더 에이치 AI</div>
+      <div class="bubble">안녕하세요! 사전점검 하자 관련 상황이시군요. 정확히 파악하기 위해 몇 가지 여쭤볼게요.<br><br>
+      1. 사전점검은 언제 진행하셨나요? 그리고 누수 위치가 천장인지 벽인지 바닥인지 알 수 있을까요?</div>
+    </div>
+    <div class="msg user">
+      <div class="msg-label">입주예정자</div>
+      <div class="bubble">2주 전에 했고요, 천장에서 물이 떨어졌어요. 사진 찍어뒀어요.</div>
+    </div>
+    <div class="msg ai">
+      <div class="msg-label">더 에이치 AI</div>
+      <div class="bubble">사진 증거가 있으시군요, 중요합니다.<br><br>
+      2. 시공사에서 "입주 후 보수"라고 한 것이 문서(문자, 이메일)로 되어 있나요, 구두(전화, 현장 말)로만 들으셨나요?</div>
+    </div>
+    <div class="msg user">
+      <div class="msg-label">입주예정자</div>
+      <div class="bubble">현장에서 직원이 구두로만 얘기했어요. 문서는 없어요.</div>
+    </div>
+    <div class="msg ai">
+      <div class="msg-label">더 에이치 AI</div>
+      <div class="bubble">네, 구두 약속은 법적으로 증명이 어려울 수 있어서 지금이라도 문서화가 중요합니다.<br><br>
+      3. 혹시 같은 문제(천장 누수)가 같은 층 이웃 세대에서도 발생한 것을 확인하셨나요?</div>
+    </div>
+    <div class="msg user">
+      <div class="msg-label">입주예정자</div>
+      <div class="bubble">카페 보니까 저 포함 8세대가 비슷한 문제 있다고 글 올렸더라고요.</div>
+    </div>
+    <div class="msg ai">
+      <div class="msg-label">더 에이치 AI</div>
+      <div class="bubble">안내드립니다. 천장 누수는 공동주택관리법상 <strong>하자담보책임</strong>에 해당하며, 누수 관련 공사(방수공사)는 사용승인일로부터 <strong>5년간 시공사가 무상 보수 의무</strong>를 집니다.<br><br>
+      ■ <strong>입주 전 보수 요구권</strong>: 하자가 있는 상태에서 입주를 거부하고 보수 완료를 조건으로 잔금 지급을 보류할 수 있습니다(동시이행 항변권).<br>
+      ■ <strong>집단 가능성</strong>: 8세대 이상이면 집단으로 하자보수 이행청구 또는 손해배상 청구를 고려해 볼 수 있습니다.<br><br>
+      현재 상황에서 취할 수 있는 구체적인 법적 조치를 담당 변호사와 상담해 보시겠어요? 방금 말씀해 주신 내용을 정리해서 변호사에게 먼저 전달해 드릴 수 있습니다.</div>
+    </div>
+    <div style="align-self:flex-start;margin-top:4px;">
+      <div style="background:#fff;border:1.5px solid #111;border-radius:8px;padding:12px 16px;font-size:13px;max-width:360px;">
+        <strong>📋 변호사 상담 신청</strong><br>
+        <span style="font-size:12px;color:#555;">AI가 파악한 사실관계를 담당 변호사에게 전달합니다. 변호사가 사전에 내용을 파악하고 상담하기 때문에 <strong>상담 시간이 단축되고 착수비도 낮아집니다.</strong></span><br>
+        <div style="background:#111;color:#fff;padding:8px 14px;margin-top:8px;border-radius:6px;font-size:12.5px;font-weight:700;text-align:center;">변호사 연결하기 →</div>
+        <div style="font-size:11px;color:#888;margin-top:6px;text-align:center;">연락처만 남기시면 담당자가 연락드립니다</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h4>대화 예시 2 — 입주 지연 (사건화 가능성 중간)</h4>
+<div class="chat-box">
+  <div class="chat-header">더 에이치 AI — 개인 법률 상담</div>
+  <div class="chat-body">
+    <div class="msg user">
+      <div class="msg-label">입주예정자</div>
+      <div class="bubble">계약서에 2026년 3월 입주라고 했는데 갑자기 6월로 3개월 미뤄졌어요. 손해배상 받을 수 있나요?</div>
+    </div>
+    <div class="msg ai">
+      <div class="msg-label">더 에이치 AI</div>
+      <div class="bubble">입주 지연이 발생하셨군요. 손해배상 가능성을 파악하기 위해 몇 가지 확인할게요.<br><br>
+      1. 계약서에 명시된 입주 예정일이 정확히 언제인가요? "2026년 3월"이 확정일인가요, 아니면 "예정"으로 표기되어 있나요?</div>
+    </div>
+    <div class="msg user">
+      <div class="msg-label">입주예정자</div>
+      <div class="bubble">"2026년 3월 말"이라고 되어 있어요. 분양 때 강조했거든요.</div>
+    </div>
+    <div class="msg ai">
+      <div class="msg-label">더 에이치 AI</div>
+      <div class="bubble">계약서에 날짜가 명시되어 있다면 중요합니다.<br><br>
+      2. 3개월 지연으로 인해 실질적인 손해가 발생하셨나요? 예를 들어, 기존 거주지 계약이 이미 종료되어 단기 임대를 구해야 했거나, 이사비용이 이중으로 발생했거나 하는 상황인가요?</div>
+    </div>
+    <div class="msg user">
+      <div class="msg-label">입주예정자</div>
+      <div class="bubble">네, 지금 살던 집 3월에 내놓고 나왔는데 6월까지 어디서 살아야 하나 막막해요. 임시로 친척집에 있어요.</div>
+    </div>
+    <div class="msg ai">
+      <div class="msg-label">더 에이치 AI</div>
+      <div class="bubble">안내드립니다.<br><br>
+      주택공급에 관한 규칙 및 분양계약 일반 조항에 따르면, 입주 지연 시 시공사·분양사는 <strong>지연 기간에 대한 지체배상금</strong>을 지급해야 합니다. 통상 분양대금의 연 5~10% 수준으로 산정됩니다.<br><br>
+      다만, <strong>실질적 손해 입증(임시 거주비용 영수증, 이중 이사비 증명 등)</strong>이 있으면 추가 손해배상도 가능합니다.<br><br>
+      친척집에 계신다면 직접적인 비용 손해 증명이 어려울 수 있어 지체배상금 청구 방식으로 접근하는 것이 현실적입니다. 같은 단지에서 지연 피해를 본 세대가 여럿이라면 집단으로 청구하는 것이 더 효과적입니다.<br><br>
+      단지 입예협 카페에서 같은 상황의 세대가 얼마나 되는지 확인해 보셨나요?</div>
+    </div>
+    <div class="msg user">
+      <div class="msg-label">입주예정자</div>
+      <div class="bubble">카페에 글이 꽤 많이 올라오고 있어요.</div>
+    </div>
+    <div class="msg ai">
+      <div class="msg-label">더 에이치 AI</div>
+      <div class="bubble">그렇다면 집단 청구로 진행하는 것이 개인보다 훨씬 유리합니다. 담당 변호사가 지체배상금 규모를 계산하고 집단 청구 방법을 안내해 드릴 수 있습니다.<br><br>
+      연락처를 남겨주시면 담당자가 1~2 영업일 내 연락드리겠습니다.</div>
+    </div>
+    <div style="align-self:flex-start;margin-top:4px;">
+      <div style="background:#fff;border:1.5px solid #111;border-radius:8px;padding:12px 16px;font-size:13px;max-width:360px;">
+        <strong>📋 집단 청구 참여 신청</strong><br>
+        <span style="font-size:12px;color:#555;">같은 단지 피해 세대를 모아 집단으로 진행 시 개인 비용이 크게 절감됩니다.</span><br>
+        <div style="background:#111;color:#fff;padding:8px 14px;margin-top:8px;border-radius:6px;font-size:12.5px;font-weight:700;text-align:center;">참여 신청하기 →</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h4>B2C AI 질문 트리 — 카테고리별 핵심 질문</h4>
+<table>
+  <thead><tr><th>카테고리</th><th>AI 핵심 질문 (3~4개)</th><th>사건화 판단 기준</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><strong>하자</strong></td>
+      <td>① 하자 유형(균열/누수/마감/설비)?<br>② 사용승인일은? (담보책임 기간)<br>③ 시공사에 보수 요청 및 거부 여부?<br>④ 몇 세대가 같은 문제?</td>
+      <td>사용승인 후 담보기간 내 + 시공사 보수 거부/지연 → 높음</td>
+    </tr>
+    <tr>
+      <td><strong>입주 지연</strong></td>
+      <td>① 계약서 입주 예정일?<br>② 지연 통보 내용과 시점?<br>③ 실질 손해(이중 이사비, 임시 거주비)?<br>④ 같은 단지 피해 세대 수?</td>
+      <td>확정 입주일 명시 + 실질 손해 입증 가능 → 높음</td>
+    </tr>
+    <tr>
+      <td><strong>변경시공 개인</strong></td>
+      <td>① 변경된 것이 계약서/공고문에 명시됐나?<br>② 사전 동의 받았나?<br>③ 구체적 금전 피해(시세 차이)?</td>
+      <td>공고문 명시 + 무동의 변경 → 높음</td>
+    </tr>
+    <tr>
+      <td><strong>분양권 전매</strong></td>
+      <td>① 단지 소재지(투기과열/조정/일반)?<br>② 분양 계약일은?<br>③ 전매 목적(매도/증여)?</td>
+      <td>전매 가능 여부 정보 제공 → 세무사 연결도 권장</td>
+    </tr>
+    <tr>
+      <td><strong>집단등기 관련 개인 문의</strong></td>
+      <td>① 단지명(입예협 관리 단지 여부)?<br>② 집단등기 참여 여부?<br>③ 개별 등기 vs 집단 등기 비용 비교 원함?</td>
+      <td>집단등기 신청 전환 CTA로 연결</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>6.4 AI → 변호사 핸드오프 (카카오 알림톡) <span class="new-badge">v2.0 수정</span></h3>
+
+<div class="callout">
+  <strong>핵심 설계 원칙: AI는 수집, 변호사는 판단, 카카오 알림톡으로 결과 통보</strong>
+  AI가 사실관계 수집을 완료하면 "변호사 연결하기" 버튼 없이 자동으로 플로우가 넘어간다. 변호사가 수집된 내용을 검토하여 수임 여부를 판단하고, 결과를 카카오 알림톡으로 간단하게 통보한다. 사용자는 결과를 기다리기만 하면 된다.
+</div>
+
+<h4>변경된 핸드오프 플로우</h4>
+<div class="flow">
+  <div class="fb">AI 사실관계<br>질문 (3~5회)</div>
+  <div class="fa">→</div>
+  <div class="fb">요약서<br>자동 생성</div>
+  <div class="fa">→</div>
+  <div class="fb dark">✅ "사실관계<br>수집 완료" 표시</div>
+  <div class="fa">→</div>
+  <div class="fb">연락처<br>입력</div>
+  <div class="fa">→</div>
+  <div class="fb">변호사<br>검토</div>
+  <div class="fa">→</div>
+  <div class="fb dark">카카오 알림톡<br>결과 통보</div>
+</div>
+
+<h4>AI 대화 종료 시 화면 예시</h4>
+<div class="chat-box">
+  <div class="chat-header">더 에이치 AI 법률 상담</div>
+  <div class="chat-body">
+    <div class="msg ai">
+      <div class="msg-label">더 에이치 AI</div>
+      <div class="bubble">네, 말씀해 주신 내용을 모두 파악했습니다. 정리해드릴게요.<br><br>
+      ■ 쟁점: 화장실 천장 누수 (사전점검 발견)<br>
+      ■ 증거: 현장 사진 확보됨<br>
+      ■ 동일 피해: 카페 기준 8세대 이상<br>
+      ■ 시공사 답변: 구두로만 "입주 후 보수" 통보</div>
+    </div>
+    <div class="final-msg">
+      <strong>✅ 사실관계 수집 완료</strong><br>
+      <span style="font-size:12.5px;">담당 변호사가 1~2 영업일 내 내용을 검토한 후,<br>수임 가능 여부와 진행 방향을 <strong>카카오 알림톡</strong>으로 보내드립니다.</span>
+    </div>
+    <div class="msg ai">
+      <div class="msg-label">더 에이치 AI</div>
+      <div class="bubble">알림톡을 받으실 휴대폰 번호를 남겨주시겠어요?</div>
+    </div>
+  </div>
+</div>
+
+<h4>카카오 알림톡 발송 예시</h4>
+<div class="wf">
+  <div class="wf-h">카카오 알림톡 — 변호사 검토 결과</div>
+  <div class="wf-b" style="background:#fef9c3;border:1px solid #fbbf24;border-radius:8px;padding:16px;font-size:13px;line-height:1.8;">
+    <strong>[법무법인 더 에이치 황해]</strong><br>
+    안녕하세요, 김○○님.<br><br>
+    AI 법률 상담 내용을 담당 변호사가 검토하였습니다.<br><br>
+    <strong>■ 검토 결과: 사건화 가능</strong><br>
+    천장 누수 + 사진 증거 + 다수 세대 동일 피해 → 집단 하자보수 이행청구 또는 손해배상 청구를 진행할 수 있습니다.<br><br>
+    <strong>■ 다음 단계</strong><br>
+    담당 변호사가 직접 연락드릴 예정입니다.<br>
+    (통상 1 영업일 이내)<br><br>
+    문의: 032-123-4567 | 카카오 채널 상담
+  </div>
+</div>
+
+<table>
+  <thead><tr><th>단계</th><th>내용</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><strong>AI 사실관계 수집 완료</strong></td>
+      <td>"변호사 연결하기" 버튼 없음. AI가 수집 완료 메시지를 자동 표시하고 연락처 입력 폼 노출</td>
+    </tr>
+    <tr>
+      <td><strong>사실관계 요약서 자동 생성</strong></td>
+      <td>AI가 대화 내용을 구조화된 형식으로 요약:<br>• 쟁점 유형 / 핵심 사실 3~5줄 / 증거 현황 / 사건화 가능성 (상/중/하)</td>
+    </tr>
+    <tr>
+      <td><strong>연락처 수집</strong></td>
+      <td>이름 + 연락처(전화 또는 카카오) 입력 폼 노출</td>
+    </tr>
+    <tr>
+      <td><strong>변호사 알림</strong></td>
+      <td>어드민 대시보드에 새 상담 건 알림 + 카카오톡/이메일 알림 발송</td>
+    </tr>
+    <tr>
+      <td><strong>변호사 검토</strong></td>
+      <td>요약서 확인 → 수임 판단 → 착수비 결정 (AI 사전 정리 있으므로 착수비 절감 가능)</td>
+    </tr>
+    <tr>
+      <td><strong>고객 연락</strong></td>
+      <td>담당 변호사 또는 담당자가 1~2 영업일 내 연락</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>변호사 어드민 대시보드에서 보이는 요약서 예시</h4>
+<div class="callout">
+  <strong>상담 건 #047 — 2026.03.03 14:32 접수</strong><br>
+  이름: 김○○ / 연락처: 010-XXXX-XXXX<br>
+  단지: 인천 송도 ○○더샵 / 쟁점: 하자 (천장 누수)<br><br>
+  <strong>사실관계 요약:</strong><br>
+  · 화장실 천장 누수 사전점검 시 발견 (2주 전). 사진 증거 확보됨<br>
+  · 시공사 구두로 "입주 후 보수" 통보. 문서 없음<br>
+  · 동일 하자 같은 층 8세대 이상 카페에서 확인됨<br>
+  · 사용승인일 미확인 (확인 필요)<br><br>
+  <strong>AI 사건화 가능성 판단: 상 (HIGH)</strong> — 사진 증거 확보 + 다세대 동일 하자 → 집단 하자보수 이행청구 또는 손해배상 청구 가능성 있음
+</div>
+
+<h3>6.5 시스템 프롬프트 설계</h3>
+
+<table>
+  <thead><tr><th>항목</th><th>B2B (입예협)</th><th>B2C (개인)</th></tr></thead>
+  <tbody>
+    <tr>
+      <td>역할 정의</td>
+      <td>법무법인 더 에이치 황해 입예협 법적 쟁점 파악 AI. 입예협 임원으로부터 단지 전체의 법적 쟁점에 대한 사실관계를 체계적으로 수집하는 역할</td>
+      <td>법무법인 더 에이치 황해 입주예정자 법률 안내 AI. 개인 수분양자의 법적 고민에서 사실관계를 파악하고 사건화 가능성을 1차 판단하는 역할</td>
+    </tr>
+    <tr>
+      <td>답변 금지</td>
+      <td>"이 경우 법원에서 승소합니다" 같은 결론 금지. "법적 의견서에서 이 점을 중점적으로 검토합니다"로 대체</td>
+      <td>"소송하시면 됩니다" 같은 직접 의견 금지. "이 쟁점은 담당 변호사가 검토해 드립니다"로 대체</td>
+    </tr>
+    <tr>
+      <td>사실관계 수집 원칙</td>
+      <td>쟁점 유형별 필수 질문 5개 이내. 질문은 한 번에 1개만. 답변 후 다음 질문</td>
+      <td>카테고리 판단 후 해당 질문 트리로 진입. 3~5개 질문 후 요약 정리</td>
+    </tr>
+    <tr>
+      <td>변호사 연결 트리거</td>
+      <td>사실관계 수집 완료 시 항상 의견서 요청 CTA 노출</td>
+      <td>"계약해제", "소송", "보상", "손해배상", "형사" 키워드 + 3개 이상 사실관계 수집 완료 시 변호사 연결 CTA 노출</td>
+    </tr>
+    <tr>
+      <td>면책 문구</td>
+      <td>모든 요약서 상단: "이 내용은 사실관계 파악을 위한 참고자료이며, 법적 효력을 가진 의견이 아닙니다"</td>
+      <td>모든 답변 말미: "위 내용은 일반적 법률 정보이며 귀하의 구체적 상황에 대한 법률 자문이 아닙니다"</td>
+    </tr>
+    <tr>
+      <td>단지 맞춤화</td>
+      <td>입력된 단지명이 황해 담당 단지 DB에 있으면 담당 변호사 정보 자동 표시</td>
+      <td>단지명 언급 시 황해 담당 여부 확인 → 담당 단지면 "우리 담당 단지입니다" + 담당 변호사 소개</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>6.6 기술 아키텍처</h3>
+
+<div class="flow">
+  <div class="fb gray">사용자 브라우저<br>Next.js 프론트</div>
+  <div class="fa">→</div>
+  <div class="fb">/api/chat<br>API Route</div>
+  <div class="fa">→</div>
+  <div class="fb dark">OpenAI<br>GPT-4o API</div>
+  <div class="fa">→</div>
+  <div class="fb">응답 스트리밍<br>→ UI 렌더</div>
 </div>
 <div class="flow" style="margin-top:8px;">
-<div class="fb gray">핸드오프 버튼<br/>클릭</div>
-<div class="fa">→</div>
-<div class="fb">/api/handoff<br/>사실관계 저장</div>
-<div class="fa">→</div>
-<div class="fb">Supabase DB<br/>상담 건 저장</div>
-<div class="fa">→</div>
-<div class="fb dark">변호사 어드민<br/>알림 발송</div>
+  <div class="fb gray">핸드오프 버튼<br>클릭</div>
+  <div class="fa">→</div>
+  <div class="fb">/api/handoff<br>사실관계 저장</div>
+  <div class="fa">→</div>
+  <div class="fb">Supabase DB<br>상담 건 저장</div>
+  <div class="fa">→</div>
+  <div class="fb dark">변호사 어드민<br>알림 발송</div>
 </div>
+
 <table>
-<thead><tr><th>레이어</th><th>기술</th><th>역할</th></tr></thead>
-<tbody>
-<tr><td>프론트엔드</td><td>Next.js (React) + Tailwind CSS</td><td>전체 페이지 렌더링. 챗봇 UI, 폼, 계산기</td></tr>
-<tr><td>AI 엔진 (초기)</td><td>OpenAI GPT-4o API + 시스템 프롬프트</td><td>대화 처리 + 사실관계 요약 생성</td></tr>
-<tr><td>AI 엔진 (성장기)</td><td>Supabase pgvector + RAG 파이프라인</td><td>황해 성공사례·법령·취득세율표 기반 검색 증강</td></tr>
-<tr><td>데이터베이스</td><td>Supabase (PostgreSQL)</td><td>상담 건 저장, 단지 DB, 신청 폼 데이터</td></tr>
-<tr><td>배포</td><td>Vercel (프론트) + Supabase (DB)</td><td>서버리스, 자동 스케일링</td></tr>
-<tr><td>알림</td><td>카카오 알림톡 API 또는 이메일 (Resend)</td><td>신청 완료 확인, 변호사 알림</td></tr>
-<tr><td>도메인</td><td>독립 도메인 (예: apt.lawfirmthe-h.com 또는 신규)</td><td>브랜드 독립성</td></tr>
-</tbody>
+  <thead><tr><th>레이어</th><th>기술</th><th>역할</th></tr></thead>
+  <tbody>
+    <tr><td>프론트엔드</td><td>Next.js (React) + Tailwind CSS</td><td>전체 페이지 렌더링. 챗봇 UI, 폼, 계산기</td></tr>
+    <tr><td>AI 엔진 (초기)</td><td>OpenAI GPT-4o API + 시스템 프롬프트</td><td>대화 처리 + 사실관계 요약 생성</td></tr>
+    <tr><td>AI 엔진 (성장기)</td><td>Supabase pgvector + RAG 파이프라인</td><td>황해 성공사례·법령·취득세율표 기반 검색 증강</td></tr>
+    <tr><td>데이터베이스</td><td>Supabase (PostgreSQL)</td><td>상담 건 저장, 단지 DB, 신청 폼 데이터</td></tr>
+    <tr><td>배포</td><td>Vercel (프론트) + Supabase (DB)</td><td>서버리스, 자동 스케일링</td></tr>
+    <tr><td>알림</td><td>카카오 알림톡 API 또는 이메일 (Resend)</td><td>신청 완료 확인, 변호사 알림</td></tr>
+    <tr><td>도메인</td><td>독립 도메인 (예: apt.lawfirmthe-h.com 또는 신규)</td><td>브랜드 독립성</td></tr>
+  </tbody>
 </table>
+
 <div class="callout red">
-<strong>⚠️ API 보안 필수 사항</strong>
-  · OpenAI API 키: 서버사이드 환경변수 전용 (<code>OPENAI_API_KEY</code>), 클라이언트 노출 절대 금지<br/>
-  · Rate Limiting: IP당 분당 10회 제한 (봇 방지)<br/>
-  · 입력 길이 제한: 최대 500자 (프롬프트 인젝션 방지)<br/>
+  <strong>⚠️ API 보안 필수 사항</strong>
+  · OpenAI API 키: 서버사이드 환경변수 전용 (<code>OPENAI_API_KEY</code>), 클라이언트 노출 절대 금지<br>
+  · Rate Limiting: IP당 분당 10회 제한 (봇 방지)<br>
+  · 입력 길이 제한: 최대 500자 (프롬프트 인젝션 방지)<br>
   · 대화 로그: Supabase에 저장 (법률 자문 품질 검토 + 지식베이스 개선)
 </div>
 </section>
+
 <!-- ============================= PART 6 ============================= -->
-<div class="part-divider">PART 6 — 개발 로드맵 &amp; 우선순위</div>
+<div class="part-divider">PART 6 — 개발 로드맵 & 우선순위</div>
+
 <section id="p6s1">
-<h2>7. 개발 로드맵 &amp; 우선순위</h2>
+<h2>7. 개발 로드맵 & 우선순위</h2>
+
 <table>
-<thead><tr><th>Sprint</th><th>기간</th><th>작업 항목</th><th>우선순위</th></tr></thead>
-<tbody>
-<tr>
-<td rowspan="6"><strong>S1<br/>1~2주</strong></td>
-<td rowspan="6">MVP 출시</td>
-<td>헤더 텍스트·네비 교체 (집단소송센터 → 입주예정자 법률지원센터)</td>
-<td><span class="p1">P1</span></td>
-</tr>
-<tr><td>히어로 슬라이더 5개 콘텐츠 교체 (이미지·텍스트·뱃지)</td><td><span class="p1">P1</span></td></tr>
-<tr><td>우측 퀵 액션 패널 교체 (집단등기 신청/계산기/AI상담)</td><td><span class="p1">P1</span></td></tr>
-<tr><td>집단등기 신청 폼 (/register) 신규 구축 + 이메일 알림</td><td><span class="p1">P1</span></td></tr>
-<tr><td>섹션1 카드 교체 (단지 현황 — 하드코딩 3~4개 단지로 시작)</td><td><span class="p1">P1</span></td></tr>
-<tr><td>팝업 모달 콘텐츠 교체 + 집단등기 링크 연결</td><td><span class="p1">P1</span></td></tr>
-<tr>
-<td rowspan="5"><strong>S2<br/>3~4주</strong></td>
-<td rowspan="5">AI 상담 론칭</td>
-<td>B2C AI 챗봇 섹션 메인 삽입 (GPT-4o + 시스템 프롬프트 5개 카테고리)</td>
-<td><span class="p1">P1</span></td>
-</tr>
-<tr><td>AI 상담 &amp; FAQ 페이지 (/ai-consult) + 카테고리별 FAQ</td><td><span class="p1">P1</span></td></tr>
-<tr><td>변호사 핸드오프 — 사실관계 요약 저장 + 이메일 알림</td><td><span class="p1">P1</span></td></tr>
-<tr><td>섹션2 뉴스 탭 교체 (집단등기/잔금대출/하자/분양권)</td><td><span class="p2">P2</span></td></tr>
-<tr><td>섹션4 가이드 카드 6개 교체</td><td><span class="p2">P2</span></td></tr>
-<tr>
-<td rowspan="4"><strong>S3<br/>5~8주</strong></td>
-<td rowspan="4">계산기·단지 현황</td>
-<td>집단등기 비용 계산기 (/calculator) — 취득세 계산 로직 + 절감액 비교</td>
-<td><span class="p2">P2</span></td>
-</tr>
-<tr><td>담당 단지 전체 목록 (/districts) + 검색·필터</td><td><span class="p2">P2</span></td></tr>
-<tr><td>어드민 대시보드 v1 (신청 건 목록, 상담 건 목록, 단지 CMS)</td><td><span class="p2">P2</span></td></tr>
-<tr><td>AI 플로팅 버튼 추가 + 카카오 알림톡 자동 발송</td><td><span class="p2">P2</span></td></tr>
-<tr>
-<td rowspan="3"><strong>S4<br/>9~12주</strong></td>
-<td rowspan="3">B2B AI 론칭</td>
-<td>B2B 입예협 의견서 AI (/opinion) — 쟁점 유형별 대화 트리 + 의견서 초안 생성</td>
-<td><span class="p2">P2</span></td>
-</tr>
-<tr><td>RAG 지식베이스 구축 (Supabase pgvector — 황해 사례·법령·취득세율표)</td><td><span class="p3">P3</span></td></tr>
-<tr><td>등기 진행 상황 확인 시스템 (eregister 수준 대응)</td><td><span class="p3">P3</span></td></tr>
-<tr>
-<td rowspan="2"><strong>S5<br/>3개월+</strong></td>
-<td rowspan="2">플랫폼화</td>
-<td>카카오 채널 챗봇 연동 (동일 AI 엔진)</td>
-<td><span class="p3">P3</span></td>
-</tr>
-<tr><td>단지 유료 파트너십 구조 + 입주박람회 제휴 서비스</td><td><span class="p3">P3</span></td></tr>
-</tbody>
+  <thead><tr><th>Sprint</th><th>기간</th><th>작업 항목</th><th>우선순위</th></tr></thead>
+  <tbody>
+    <tr>
+      <td rowspan="6"><strong>S1<br>1~2주</strong></td>
+      <td rowspan="6">MVP 출시</td>
+      <td>헤더 텍스트·네비 교체 (집단소송센터 → 입주예정자 법률지원센터)</td>
+      <td><span class="p1">P1</span></td>
+    </tr>
+    <tr><td>히어로 슬라이더 5개 콘텐츠 교체 (이미지·텍스트·뱃지)</td><td><span class="p1">P1</span></td></tr>
+    <tr><td>우측 퀵 액션 패널 교체 (집단등기 신청/계산기/AI상담)</td><td><span class="p1">P1</span></td></tr>
+    <tr><td>집단등기 신청 폼 (/register) 신규 구축 + 이메일 알림</td><td><span class="p1">P1</span></td></tr>
+    <tr><td>섹션1 카드 교체 (단지 현황 — 하드코딩 3~4개 단지로 시작)</td><td><span class="p1">P1</span></td></tr>
+    <tr><td>팝업 모달 콘텐츠 교체 + 집단등기 링크 연결</td><td><span class="p1">P1</span></td></tr>
+    <tr>
+      <td rowspan="5"><strong>S2<br>3~4주</strong></td>
+      <td rowspan="5">AI 상담 론칭</td>
+      <td>B2C AI 챗봇 섹션 메인 삽입 (GPT-4o + 시스템 프롬프트 5개 카테고리)</td>
+      <td><span class="p1">P1</span></td>
+    </tr>
+    <tr><td>AI 상담 & FAQ 페이지 (/ai-consult) + 카테고리별 FAQ</td><td><span class="p1">P1</span></td></tr>
+    <tr><td>변호사 핸드오프 — 사실관계 요약 저장 + 이메일 알림</td><td><span class="p1">P1</span></td></tr>
+    <tr><td>섹션2 뉴스 탭 교체 (집단등기/잔금대출/하자/분양권)</td><td><span class="p2">P2</span></td></tr>
+    <tr><td>섹션4 가이드 카드 6개 교체</td><td><span class="p2">P2</span></td></tr>
+    <tr>
+      <td rowspan="4"><strong>S3<br>5~8주</strong></td>
+      <td rowspan="4">계산기·단지 현황</td>
+      <td>집단등기 비용 계산기 (/calculator) — 취득세 계산 로직 + 절감액 비교</td>
+      <td><span class="p2">P2</span></td>
+    </tr>
+    <tr><td>담당 단지 전체 목록 (/districts) + 검색·필터</td><td><span class="p2">P2</span></td></tr>
+    <tr><td>어드민 대시보드 v1 (신청 건 목록, 상담 건 목록, 단지 CMS)</td><td><span class="p2">P2</span></td></tr>
+    <tr><td>AI 플로팅 버튼 추가 + 카카오 알림톡 자동 발송</td><td><span class="p2">P2</span></td></tr>
+    <tr>
+      <td rowspan="3"><strong>S4<br>9~12주</strong></td>
+      <td rowspan="3">B2B AI 론칭</td>
+      <td>B2B 입예협 의견서 AI (/opinion) — 쟁점 유형별 대화 트리 + 의견서 초안 생성</td>
+      <td><span class="p2">P2</span></td>
+    </tr>
+    <tr><td>RAG 지식베이스 구축 (Supabase pgvector — 황해 사례·법령·취득세율표)</td><td><span class="p3">P3</span></td></tr>
+    <tr><td>등기 진행 상황 확인 시스템 (eregister 수준 대응)</td><td><span class="p3">P3</span></td></tr>
+    <tr>
+      <td rowspan="2"><strong>S5<br>3개월+</strong></td>
+      <td rowspan="2">플랫폼화</td>
+      <td>카카오 채널 챗봇 연동 (동일 AI 엔진)</td>
+      <td><span class="p3">P3</span></td>
+    </tr>
+    <tr><td>단지 유료 파트너십 구조 + 입주박람회 제휴 서비스</td><td><span class="p3">P3</span></td></tr>
+  </tbody>
 </table>
+
 <div class="callout green">
-<strong>Sprint 1 완료 기준 (2주 내 배포 가능)</strong>
+  <strong>Sprint 1 완료 기준 (2주 내 배포 가능)</strong>
   헤더 교체 + 슬라이더 교체 + 집단등기 신청 폼 가동. 이 3가지만 완료되면 현재 관리 중인 입예협 카페에 즉시 링크 배포 가능. AI 챗봇은 Sprint 2에서 점진적 추가.
 </div>
 </section>
+
 <!-- ============================= PART 7 ============================= -->
-<div class="part-divider">PART 7 — 기대 효과 &amp; 수익 모델</div>
+<div class="part-divider">PART 7 — 기대 효과 & 수익 모델</div>
+
 <section id="p7s1">
-<h2>8. 기대 효과 &amp; 수익 모델</h2>
+<h2>8. 기대 효과 & 수익 모델</h2>
+
 <h3>8.1 직접 수익 추정</h3>
 <table>
-<thead><tr><th>항목</th><th>단지 규모</th><th>세대당 수수료</th><th>단지 1개 매출</th></tr></thead>
-<tbody>
-<tr><td>집단등기</td><td>소형 300세대</td><td>30~50만원</td><td>9,000만 ~ 1.5억</td></tr>
-<tr><td>집단등기</td><td>중형 700세대</td><td>30~50만원</td><td><strong>2.1억 ~ 3.5억</strong></td></tr>
-<tr><td>집단등기</td><td>대형 1,500세대</td><td>25~40만원</td><td>3.75억 ~ 6억</td></tr>
-</tbody>
+  <thead><tr><th>항목</th><th>단지 규모</th><th>세대당 수수료</th><th>단지 1개 매출</th></tr></thead>
+  <tbody>
+    <tr><td>집단등기</td><td>소형 300세대</td><td>30~50만원</td><td>9,000만 ~ 1.5억</td></tr>
+    <tr><td>집단등기</td><td>중형 700세대</td><td>30~50만원</td><td><strong>2.1억 ~ 3.5억</strong></td></tr>
+    <tr><td>집단등기</td><td>대형 1,500세대</td><td>25~40만원</td><td>3.75억 ~ 6억</td></tr>
+  </tbody>
 </table>
+
 <h3>8.2 AI 도입으로 인한 추가 효과</h3>
 <table>
-<thead><tr><th>효과</th><th>구체 내용</th></tr></thead>
-<tbody>
-<tr><td><strong>변호사 응답 시간 절약</strong></td><td>반복 질문(취득세율, 필요서류 등) AI가 24시간 처리 → 변호사는 실질 사건에만 집중</td></tr>
-<tr><td><strong>개인 사건 수임 증가</strong></td><td>B2C AI가 사전 사실관계 수집 → 변호사 상담 시간 단축 → 착수비 낮춰 수임 문턱 하향 → 건수 증가</td></tr>
-<tr><td><strong>입예협 선점 차별화</strong></td><td>경쟁 로펌 대비 AI 플랫폼 보유 → 입예협 로펌 선정 경쟁에서 압도적 우위</td></tr>
-<tr><td><strong>하자소송 파이프라인</strong></td><td>집단등기 단지 → 입주 후 하자 → AI가 먼저 사실관계 수집 → 황해 하자소송팀 자연 연결</td></tr>
-<tr><td><strong>SEO 유입</strong></td><td>비용 계산기 + 법률 가이드 콘텐츠 → "집단등기 비용", "사전점검 하자" 등 검색 유입 증가</td></tr>
-</tbody>
+  <thead><tr><th>효과</th><th>구체 내용</th></tr></thead>
+  <tbody>
+    <tr><td><strong>변호사 응답 시간 절약</strong></td><td>반복 질문(취득세율, 필요서류 등) AI가 24시간 처리 → 변호사는 실질 사건에만 집중</td></tr>
+    <tr><td><strong>개인 사건 수임 증가</strong></td><td>B2C AI가 사전 사실관계 수집 → 변호사 상담 시간 단축 → 착수비 낮춰 수임 문턱 하향 → 건수 증가</td></tr>
+    <tr><td><strong>입예협 선점 차별화</strong></td><td>경쟁 로펌 대비 AI 플랫폼 보유 → 입예협 로펌 선정 경쟁에서 압도적 우위</td></tr>
+    <tr><td><strong>하자소송 파이프라인</strong></td><td>집단등기 단지 → 입주 후 하자 → AI가 먼저 사실관계 수집 → 황해 하자소송팀 자연 연결</td></tr>
+    <tr><td><strong>SEO 유입</strong></td><td>비용 계산기 + 법률 가이드 콘텐츠 → "집단등기 비용", "사전점검 하자" 등 검색 유입 증가</td></tr>
+  </tbody>
 </table>
+
 <h3>8.3 즉시 실행 가능한 액션 3가지</h3>
 <ol>
-<li style="margin-bottom:12px;">
-<strong>도메인 확보</strong><br/>
+  <li style="margin-bottom:12px;">
+    <strong>도메인 확보</strong><br>
     가비아에서 <code>lawh-apt.com</code> 또는 <code>apt.lawfirmthe-h.com</code> 서브도메인 확보. 연 1~2만원.
   </li>
-<li style="margin-bottom:12px;">
-<strong>MVP 2주 배포 (Sprint 1)</strong><br/>
+  <li style="margin-bottom:12px;">
+    <strong>MVP 2주 배포 (Sprint 1)</strong><br>
     classaction 사이트 코드베이스에서 텍스트·이미지·링크만 교체. 집단등기 신청 폼 추가. 현재 관리 중인 입예협 카페에 즉시 링크 배포.
   </li>
-<li>
-<strong>AI 챗봇 PoC (Sprint 2)</strong><br/>
+  <li>
+    <strong>AI 챗봇 PoC (Sprint 2)</strong><br>
     GPT-4o API + 시스템 프롬프트 초안 → 내부 테스트 1주 → 1개 단지 카페에 베타 배포. 사용자 피드백 수집 후 프롬프트 개선.
   </li>
 </ol>
 </section>
+
 <footer>
-<p>법무법인 더 에이치 황해 — 입주예정자협의회 법률 AI 플랫폼 종합 기획서 v1.0 | 2026. 03. 03</p>
-<p>본 기획서는 classaction.lawfirmthe-h.com 직접 접근·스냅샷·소스 분석, 경쟁 로펌 리서치, 황해 내부 정보를 종합하여 작성하였습니다.</p>
+  <p>법무법인 더 에이치 황해 — 입주예정자협의회 법률 AI 플랫폼 종합 기획서 v1.0 | 2026. 03. 03</p>
+  <p>본 기획서는 classaction.lawfirmthe-h.com 직접 접근·스냅샷·소스 분석, 경쟁 로펌 리서치, 황해 내부 정보를 종합하여 작성하였습니다.</p>
 </footer>
+
 </div>
 </body>
 </html>
